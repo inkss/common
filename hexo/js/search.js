@@ -148,7 +148,7 @@ var SearchService = "";
     self.buildResult = function(url, title, digest, index) {
       var html = "";
       html = "<li>";
-      html +=   "<a class='result fix-search-pjax-" + index +" value='" +url+ "'>";
+      html +=   "<a class='result fix-search-pjax-" + index + "'>";
         html +=     "<span class='title'>" +index + ".  " + title+ "</span>";
       if(digest !== "")
         html +=     "<span class='digest'>" +digest+ "</span>";
