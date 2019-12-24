@@ -351,11 +351,11 @@
                         t.init(e)
                     }, 300)
                 }) : e && t._init(),
-                u.dynamicLoadSource("script", {
-                    src: "//js.fundebug.cn/fundebug.1.9.0.min.js",
-                    apikey: "2c7e5b30c7cf402cb7fb35d14b62e7f778babbb70d054160af750065a180fdcd",
-                    async: !0
-                }),
+                // u.dynamicLoadSource("script", {
+                //     src: "//js.fundebug.cn/fundebug.1.9.0.min.js",
+                //     apikey: "2c7e5b30c7cf402cb7fb35d14b62e7f778babbb70d054160af750065a180fdcd",
+                //     async: !0
+                // }),
                 t;
             console
         }

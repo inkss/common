@@ -31,10 +31,7 @@ var SearchService = "";
       },
       brands: {
         'hexo': {logo: '', url: ''},
-        'google': {logo: 'google.svg', url: 'https://cse.google.com'},
-        'algolia': {logo: 'algolia.svg', url: 'https://www.algolia.com'},
-        'baidu': {logo: 'baidu.svg', url: 'http://zn.baidu.com/cse/home/index'},
-        'azure': {logo: 'azure.svg', url: 'https://azure.microsoft.com/en-us/services/search/'}
+        'algolia': {logo: 'algolia.svg', url: 'https://www.algolia.com'}
       },
       imagePath: ROOT + "img/"
     }, options);
@@ -121,6 +118,26 @@ var SearchService = "";
       }
     };
 
+    self.getUrlRelativePath = function(url) {
+　　　　var arrUrl = url.split("//");
+　　　　var start = arrUrl[1].indexOf("/");
+　　　　var relUrl = arrUrl[1].substring(start);
+　　　　if(relUrl.indexOf("?") != -1){
+　　　　　　relUrl = relUrl.split("?")[0];
+　　　　}
+　　　　return relUrl;
+　　}
+
+    /**
+     * Close the modal, resume body scrolling
+     * no param
+     */
+    self.close = function() {
+      self.open = false;
+      self.dom.container.fadeOut();
+      self.dom.body.removeClass('modal-active');
+    };
+
     /**
      * Generate html for one result
      * @param url : (string) url
@@ -131,27 +148,18 @@ var SearchService = "";
     self.buildResult = function(url, title, digest, index) {
       var html = "";
       html = "<li>";
-      html +=   "<a class='result' href='" +url+ "'>";
-      if(index === undefined)
-        html +=     "<span class='title'>" +title+ "</span>";
-      else
+      html +=   "<a class='result fix-search-pjax-" + index +" value='" +url+ "'>";
         html +=     "<span class='title'>" +index + ".  " + title+ "</span>";
       if(digest !== "")
         html +=     "<span class='digest'>" +digest+ "</span>";
       html +=     "<span class='fas fa-chevron-thin-right'></span>";
       html +=   "</a>";
+      html += "<script>$('.fix-search-pjax-" + index +"').click(function (event) {pjax.loadUrl('"+self.getUrlRelativePath(url)+"');setTimeout(function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active');}, 300);});</script>";
       html += "</li>";
+      //$('body').removeClass('modal-active');
+      //setTimeout(function(){$('#u-search').fadeOut(500);self.dom.body.removeClass('modal-active');}, 300);
+      //
       return html;
-    };
-
-    /**
-     * Close the modal, resume body scrolling
-     * no param
-     */
-    self.close = function() {
-      self.open = false;
-      self.dom.container.fadeOut();
-      self.dom.body.removeClass('modal-active');
     };
 
     /**
@@ -340,305 +348,6 @@ var AlgoliaSearch;
 
 })(jQuery);
 
-var AzureSearch;
-(function($) {
-  'use strict';
-
-  /**
-   * Search by Azure Search API
-   * @param options : (object)
-   */
-  AzureSearch = function(options) {
-    SearchService.apply(this, arguments);
-    var self = this;
-    var endpoint = "https://" +self.config.serviceName+ ".search.windows.net/indexes/" +self.config.indexName+ "/docs?api-version=2015-02-28";
-    self.nav.current = 1;
-    self.addLogo('azure');
-
-    /**
-     * Generate result list html
-     * @param data : (array) result items
-     */
-    self.buildResultList = function(data) {
-      var html = "";
-      $.each(data, function(index, row) {
-        var url = row.permalink || row.path || "";
-        if (!row.permalink && row.path) {
-          url = "/" + url;
-        }
-        var title = row.title;
-        var digest = row.excerpt || "";
-        html += self.buildResult(url, title, digest);
-      });
-      return html;
-    };
-
-    /**
-     * Generate metadata after a successful query
-     * @param data : (object) the raw response data
-     * @param startIndex : (int) requested start index of current query
-     */
-    self.buildMetadata = function(data, startIndex) {
-      self.nav.current = startIndex;
-      self.nav.currentCount = data.value.length;
-      self.nav.total = parseInt(data['@odata.count']);
-      self.dom.modal_metadata.children('.total').html(self.nav.total);
-      self.dom.modal_metadata.children('.range').html(self.nav.current + "-" + (self.nav.current+self.nav.currentCount-1));
-      if (self.nav.total > 0) {
-        self.dom.modal_metadata.show();
-      }
-      else {
-        self.dom.modal_metadata.hide();
-      }
-
-      if (self.nav.current+self.nav.currentCount <= self.nav.total) {
-        self.nav.next = self.nav.current+self.nav.currentCount;
-        self.dom.btn_next.show();
-      }
-      else {
-        self.nav.next = -1;
-        self.dom.btn_next.hide();
-      }
-      if (self.nav.current > 1) {
-        self.nav.prev = self.nav.current-self.config.per_page;
-        self.dom.btn_prev.show();
-      }
-      else {
-        self.nav.prev = -1;
-        self.dom.btn_prev.hide();
-      }
-    };
-
-    /**
-     * Send a GET request
-     * @param queryText : (string) the query text
-     * @param page : (int) the current page (start from 1)
-     * @param callback : (function)
-     */
-    self.query = function(queryText, startIndex, callback) {
-      $.ajax({
-        url: endpoint,
-        headers: {
-          "Accept": "application/json",
-          "api-key": self.config.queryKey
-        },
-        data: {
-          search: queryText,
-          $orderby: "date desc",
-          $skip: startIndex-1,
-          $top: self.config.per_page,
-          $count: true
-        },
-        type: "GET",
-        success: function(data, status) {
-          if (status === 'success' && data.value && data.value.length > 0) {
-            var results = self.buildResultList(data.value);
-            self.dom.modal_results.html(results);
-          }
-          else {
-            self.onQueryError(queryText, status);
-          }
-          self.buildMetadata(data, startIndex);
-          if (callback) {
-            callback(data);
-          }
-        }
-      });
-    };
-
-    return self;
-  };
-
-})(jQuery);
-
-var BaiduSearch;
-(function($) {
-  'use strict';
-
-  /**
-   * TODO
-   * Search by Baidu Search API
-   * @param options : (object)
-   */
-  BaiduSearch = function(options) {
-    SearchService.apply(this, arguments);
-    var self = this;
-    var endpoint = "";
-    self.addLogo('baidu');
-
-    /**
-     * Generate result list html
-     * @param data : (array) result items
-     */
-    self.buildResultList = function(data, queryText) {
-      var results = [],
-          html = "";
-      $.each(data, function(index, post) {
-        if (self.contentSearch(post, queryText))
-          html += self.buildResult(post.linkUrl, post.title, post.abstract);
-      });
-      return html;
-    };
-
-    /**
-     * Generate metadata after a successful query
-     * @param data : (object) the raw google custom search response data
-     */
-    self.buildMetadata = function(data) {
-
-    };
-
-    self.loadScript = function() {
-      self.dom.input.each(function(index,elem) {
-        $(elem).attr('disabled', true);
-      });
-      var script = "<script src='http://zhannei.baidu.com/api/customsearch/apiaccept?sid=" +self.config.apiId+ "&v=2.0&callback=customSearch.initBaidu' type='text/javascript' charset='utf-8'></script>";
-      self.dom.body.append(script);
-    };
-
-    self.initBaidu = function() {
-      self.cse = new BCse.Search(self.config.apiId);
-      //self.cse.setPageNum(self.config.per_page);
-      self.dom.input.each(function(index,elem) {
-        $(elem).attr('disabled', false);
-      });
-    };
-
-    /**
-     * Get search results
-     * @param queryText {String}
-     * @param page {Integer}
-     * @param callback {Function}
-     */
-    self.query = function(queryText, page, callback) {
-      self.cse.getResult(queryText, function(data) {
-        console.log("Searching: " + queryText);
-        self.cse.getError(function(data) {
-          console.log(data);
-        });
-        if (data.length > 0) {
-          self.buildResultList(data, queryText);
-          self.cse.getSearchInfo(queryText, function(data) {
-            console.log(data);
-            self.buildMetadata(data);
-          });
-        }
-        else {
-          self.nav.total = 0;
-          self.nav.next = -1;
-          self.nav.prev = -1;
-          self.dom.modal_metadata.hide();
-          self.dom.btn_next.hide();
-          self.dom.btn_prev.hide();
-          self.onQueryError(queryText, "success");
-        }
-        if (callback instanceof Function) {
-          callback();
-        }
-      });
-    };
-
-    self.loadScript();
-
-    return self;
-  };
-
-})(jQuery);
-
-var GoogleCustomSearch = "";
-(function($) {
-  'use strict';
-
-  /**
-   * Search by Google Custom Search Engine JSON API
-   * @param options : (object)
-   */
-  GoogleCustomSearch = function(options) {
-    SearchService.apply(this, arguments);
-    var self = this;
-    var endpoint = "https://www.googleapis.com/customsearch/v1";
-    self.addLogo('google');
-
-    /**
-     * Generate result list html
-     * @param data : (array) result items
-     */
-    self.buildResultList = function(data) {
-      var html = "";
-      $.each(data, function(index, row) {
-        var url = row.link;
-        var title = row.title;
-        var digest = (row.htmlSnippet || "").replace('<br>','');
-        html += self.buildResult(url, title, digest);
-      });
-      return html;
-    };
-
-    /**
-     * Generate metadata after a successful query
-     * @param data : (object) the raw google custom search response data
-     */
-    self.buildMetadata = function(data) {
-      if (data.queries && data.queries.request && data.queries.request[0].totalResults !== '0') {
-        self.nav.current = data.queries.request[0].startIndex;
-        self.nav.currentCount = data.queries.request[0].count;
-        self.nav.total = parseInt(data.queries.request[0].totalResults);
-        self.dom.modal_metadata.children('.total').html(self.nav.total);
-        self.dom.modal_metadata.children('.range').html(self.nav.current + "-" + (self.nav.current+self.nav.currentCount-1));
-        self.dom.modal_metadata.show();
-      }
-      else {
-        self.dom.modal_metadata.hide();
-      }
-      if (data.queries && data.queries.nextPage) {
-        self.nav.next = data.queries.nextPage[0].startIndex;
-        self.dom.btn_next.show();
-      }
-      else {
-        self.nav.next = -1;
-        self.dom.btn_next.hide();
-      }
-      if (data.queries && data.queries.previousPage) {
-        self.nav.prev = data.queries.previousPage[0].startIndex;
-        self.dom.btn_prev.show();
-      }
-      else {
-        self.nav.prev = -1;
-        self.dom.btn_prev.hide();
-      }
-    };
-
-    /**
-     * Send a GET request
-     * @param queryText : (string) the query text
-     * @param startIndex : (int) the index of first item (start from 1)
-     * @param callback : (function)
-     */
-    self.query = function(queryText, startIndex, callback) {
-      $.get(endpoint, {
-        key: self.config.apiKey,
-        cx: self.config.engineId,
-        q: queryText,
-        start: startIndex,
-        num: self.config.per_page
-      }, function(data, status) {
-        if (status === 'success' && data.items && data.items.length > 0) {
-          var results = self.buildResultList(data.items);
-          self.dom.modal_results.html(results);
-        }
-        else {
-          self.onQueryError(queryText, status);
-        }
-        self.buildMetadata(data);
-        if (callback) {
-          callback();
-        }
-      });
-    };
-
-    return self;
-  };
-})(jQuery);
 
 var HexoSearch;
 (function($) {
@@ -717,8 +426,11 @@ var HexoSearch;
           html = "";
       var i = 1;
       $.each(data, function(index, post) {
-        if (self.contentSearch(post, queryText)) 
-          html += self.buildResult(post.permalink, post.title, post.digest, i++);
+        if (self.contentSearch(post, queryText)) {
+          var articleName = HEXO_PERMALINK.split('/');
+          if(post.permalink.indexOf(articleName[0]) >= 0) 
+            html += self.buildResult(post.permalink, post.title, post.digest, i++);
+        }
       });
       return html;
     };
