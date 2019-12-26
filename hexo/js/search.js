@@ -147,18 +147,16 @@ var SearchService = "";
      */
     self.buildResult = function(url, title, digest, index) {
       var html = "";
+      var result = self.getUrlRelativePath(url);
       html = "<li>";
-      html +=   "<a class='result fix-search-pjax-" + index + "'>";
-        html +=     "<span class='title'>" +index + ".  " + title+ "</span>";
+      html +=   "<a class='result search-result-fix' value='" + result + "'>";
+      html +=     "<span class='title'>" +index + ".  " + title+ "</span>";
       if(digest !== "")
-        html +=     "<span class='digest'>" +digest+ "</span>";
+      html +=     "<span class='digest'>" +digest+ "</span>";
       html +=     "<span class='fas fa-chevron-thin-right'></span>";
       html +=   "</a>";
-      html += "<script>$('.fix-search-pjax-" + index +"').click(function (event) {pjax.loadUrl('"+self.getUrlRelativePath(url)+"');setTimeout(function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active');}, 300);});</script>";
+      // html += "<script>$('.fix-search-pjax-" + index +"').click(function (event) {pjax.loadUrl('"+self.getUrlRelativePath(url)+"');setTimeout(function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active');}, 300);});</script>";
       html += "</li>";
-      //$('body').removeClass('modal-active');
-      //setTimeout(function(){$('#u-search').fadeOut(500);self.dom.body.removeClass('modal-active');}, 300);
-      //
       return html;
     };
 
@@ -277,6 +275,7 @@ var AlgoliaSearch;
         var digest = "";
         html += self.buildResult(url, title, digest, index+1);
       });
+      html += "<script>$('.result.search-result-fix').click(function(event){var url = this.getAttribute('value');pjax.loadUrl(url);setTimeout(function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active');}, 300);});</script>";
       return html;
     };
 
@@ -432,6 +431,7 @@ var HexoSearch;
             html += self.buildResult(post.permalink, post.title, post.digest, i++);
         }
       });
+      html += "<script>$('.result.search-result-fix').click(function(event){var url = this.getAttribute('value');pjax.loadUrl(url);setTimeout(function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active');}, 300);});</script>";
       return html;
     };
 
