@@ -56,7 +56,8 @@ var SearchService = "";
     self.beforeQuery = function() {
       if (!self.open) {
         self.dom.container.fadeIn();
-        self.dom.body.addClass('modal-active');
+        //self.dom.body.addClass('modal-active');  
+        // 上面的是去除了文章的滚动条，我觉得没必要
       }
       self.dom.input.each(function(index,elem) {
         $(elem).val(self.queryText);
