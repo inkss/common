@@ -86,7 +86,6 @@ var customSearch;
 				if (del >= 100 && scrollTop > 150) {
 					$wrapper.addClass('sub');
 					pos = scrollTop;
-				//} else if (del == 0 || del <= -50) {
 				} else if (del <= -100) {
 					$wrapper.removeClass('sub');
 					pos = scrollTop;
@@ -223,12 +222,19 @@ var customSearch;
 			$toc.removeClass('active');
 		});
 
-		const liElements = Array.from($toc.find('li a'));
-		const getAnchor = () => liElements.map(elem => Math.floor($(elem.getAttribute('href')).offset().top - scrollCorrection));
+		//这是一个妥协修改，我尝试利用 html 的 <details> 标签在页面中实现折叠效果
+		//但是折叠的过程中，很明显的是页面高度发生了变化，所以带来的影响就是下面的
+		//计算部分将出现错误的结果，我没有找到更好的解决办法，于是选择了在这类文章
+		//中取消 TOC 的高亮。 TODO：fix it
+		const check = $.trim($('#fixDetailsToc').text());
+		if(check === "true") return; 
+
+		let liElements = Array.from($toc.find('li a'));
+		let getAnchor = () => liElements.map(elem => Math.floor($(elem.getAttribute('href')).offset().top - scrollCorrection));
 		
 		let anchor = getAnchor(); // 记录的是各个 TOC 的高度
-		const scrollListener = () => {
-			const scrollTop = $('html').scrollTop() || $('body').scrollTop();
+		let scrollListener = () => {
+			let scrollTop = $('html').scrollTop() || $('body').scrollTop();
 			if (!anchor) return;
 			let l = 0,
 				r = anchor.length - 1,
@@ -275,10 +281,6 @@ var customSearch;
 		setTocToggle(); // 点击TOC中的目录时，实现动画滚动，以及跟随着滚动激活条目
 		setScrollAnchor(); // 全局滚动动画
 		setSearchService();
-
-		// setTimeout(function () {
-		// 	$('#loading-bar-wrapper').fadeOut(500);
-		// }, 300);
 
 		// addEventListener是先绑定先执行，此处的绑定后执行
 		document.addEventListener('pjax:complete', function () {
