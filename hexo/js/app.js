@@ -78,7 +78,7 @@ var customSearch;
 
 		var pos = document.body.scrollTop;
 		$(document, window).scroll(() => {
-			$('#header-fix').removeClass('z_search-open'); // 移除导航栏搜索菜单的激活
+			$('.l_header').removeClass('z_search-open'); // 移除导航栏搜索菜单的激活
 			$('body').removeClass('z_menu-open');   // 移除导航栏菜单的激活
 			if (isArticle) {
 				const scrollTop = $(window).scrollTop();

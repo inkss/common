@@ -156,7 +156,6 @@ var SearchService = "";
       html +=     "<span class='digest'>" +digest+ "</span>";
       html +=     "<span class='fas fa-chevron-thin-right'></span>";
       html +=   "</a>";
-      // html += "<script>$('.fix-search-pjax-" + index +"').click(function (event) {pjax.loadUrl('"+self.getUrlRelativePath(url)+"');setTimeout(function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active');}, 300);});</script>";
       html += "</li>";
       return html;
     };
@@ -276,7 +275,7 @@ var AlgoliaSearch;
         var digest = "";
         html += self.buildResult(url, title, digest, index+1);
       });
-      html += "<script>$('.result.search-result-fix').click(function(event){var url = this.getAttribute('value');pjax.loadUrl(url);setTimeout(function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active');}, 300);});</script>";
+      html += "<script>$('.result.search-result-fix').click(function(event){var url = this.getAttribute('value');try{pjax.loadUrl(url)}catch(e){$(location).attr('href', url)}setTimeout(function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active');}, 300);});</script>";
       return html;
     };
 
@@ -432,7 +431,7 @@ var HexoSearch;
             html += self.buildResult(post.permalink, post.title, post.digest, i++);
         }
       });
-      html += "<script>$('.result.search-result-fix').click(function(event){var url = this.getAttribute('value');pjax.loadUrl(url);setTimeout(function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active');}, 300);});</script>";
+      html += "<script>$('.result.search-result-fix').click(function(event){var url = this.getAttribute('value');try{pjax.loadUrl(url)}catch(e){$(location).attr('href', url)}setTimeout(function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active');}, 300);});</script>";
       return html;
     };
 
