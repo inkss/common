@@ -11,7 +11,7 @@ var customSearch;
 		scrollCorrection = $headerAnchor[0].clientHeight + 16;
 	}
 
-	// 尝试： 重设数据值                                   // 真的有用吗？不知道啊啊
+	// 尝试： 重设数据值
 	function restData() {
 		scrollCorrection = 80;
 		$headerAnchor = $('.l_header', '.cover-wrapper');
@@ -36,15 +36,16 @@ var customSearch;
 		const $bodyAnchor = $('.l_body');                // 页面主体
 
 		if ($postsBtn.length && $bodyAnchor) {
-			$postsBtn.click(e => {                 // 挺好奇这个的点击的作用  感觉没啥用
+			$postsBtn.click(e => {
 				e.preventDefault();
 				e.stopPropagation();
-				scrolltoElement($bodyAnchor);
+				if($postsBtn.attr("href") != "/")       // TODO: fix it
+					scrolltoElement($bodyAnchor);
 				e.stopImmediatePropagation();
 			});
 		}
 		if ($titleBtn.length && $bodyAnchor) {
-			$titleBtn.click(e => {                // +1 好奇
+			$titleBtn.click(e => {
 				e.preventDefault();
 				e.stopPropagation();
 				scrolltoElement($bodyAnchor);
@@ -52,7 +53,7 @@ var customSearch;
 			});
 		}
 		if ($topBtn.length && $bodyAnchor) {
-			$topBtn.click(e => {                  // 天天向上 呱~
+			$topBtn.click(e => {
 				e.preventDefault();
 				e.stopPropagation();
 				scrolltoElement($bodyAnchor);
@@ -61,17 +62,27 @@ var customSearch;
 		}
 
 		//==========================================
-		// 这里几乎不用处理 👇👇👇👇👇👇👇👇👇                                TODO： fix it
-		// @xaoxuxu 我的观点是，提供一个可以手动控制封面显示出现的样式，
-		//                    类似其它的 addClass 和 removeClass
+
 		const $coverAnchor = $('.cover-wrapper');
+
+		var enableCover = $('#pjax-enable-cover').text(); // Pjax 处理
+
 		var showHeaderPoint = 0;
 		if ($coverAnchor[0]) {
-			showHeaderPoint = $coverAnchor[0].clientHeight - 180;
+			if(enableCover == "true" && $('.cover.half').css('display') !== 'none') // Pjax 处理
+				showHeaderPoint = $coverAnchor[0].clientHeight - 180;
 		}
+
 		var pos = document.body.scrollTop;
+		if(enableCover == "true" && $('.cover.half').css('display') === 'none')
+			pos += 180; // Pjax 处理
+
 		$(document, window).scroll(() => {
-			const scrollTop = $(window).scrollTop();
+			let scrollTop = $(window).scrollTop();  // 滚动条距离顶部的距离
+
+			if(enableCover == "true" && $('.cover.half').css('display') === 'none')
+				scrollTop += 180; // Pjax 处理
+
 			const del = scrollTop - pos;
 			pos = scrollTop;
 			if (scrollTop > 180) {
@@ -93,7 +104,7 @@ var customSearch;
 		//==========================================
 	}
 
-	// 设置导航栏  fix √
+	// 设置导航栏
 	function setHeader() {
 		var HEXO_ISPAGE = $.trim($('#pjax-ispage').text());
 		if(HEXO_ISPAGE == 'true')
@@ -107,6 +118,7 @@ var customSearch;
 		const $comment = $('.s-comment', $wrapper);   // 评论按钮  桌面端 移动端
 		const $toc = $('.s-toc', $wrapper);           // 目录按钮  仅移动端
 
+		$comment.show(); // 显示 (某些文章可能关闭了评论，故先行显示)
 		$wrapper.find('.nav-sub .title').text(window.subData.title);   // 二级导航文章标题
 
 		// 决定一二级导航栏的切换
@@ -126,21 +138,15 @@ var customSearch;
 		// bind events to every btn
 		let $commentTarget = $('.l_body .comments');  // 评论区域
 		if ($commentTarget.length) {
-			$comment.click(e => {                         // 评论按钮点击后 跳转到评论区域
+			$comment.click(e => {                     // 评论按钮点击后 跳转到评论区域
 				e.preventDefault();
 				e.stopPropagation();
 				scrolltoElement($('.l_body .comments'));
 				e.stopImmediatePropagation();
 			});
-		}
-		// else $comment.remove();   // bug：进入到没有评论的页面后，评论按钮被移除的   （👇 咋加？）
-		// TODO： 或许可以尝试在 pjax 完成事件里手动添加评论按钮
-		// ==============================================
+		} else $comment.hide();   // 关闭了评论，则隐藏
 
-
-		// -------------------------hello world------------------------- //
-
-		const $tocTarget = $('.l_body .toc-wrapper');         // 侧边栏的目录列表  PC
+		const $tocTarget = $('.l_body .toc-wrapper');     // 侧边栏的目录列表  PC
 		if ($tocTarget.length && $tocTarget.children().length) {
 			$toc.click((e) => {
 				e.stopPropagation();
@@ -159,7 +165,7 @@ var customSearch;
 		} else $toc.remove();
 	}
 
-	// 设置导航栏菜单选中状态            <-------------- 重新加载下即可
+	// 设置导航栏菜单选中状态
 	function setHeaderMenuSelection() {
 		var $headerMenu = $('body .navigation');
 		// 先把已经激活的取消激活
@@ -201,7 +207,7 @@ var customSearch;
 		var $search = $('.l_header .m_search');               // 搜索框 桌面端
 		if ($switcher.length === 0) return;
 		$switcher.click(function (e) {
-			// e.stopPropagation();
+			e.stopPropagation();
 			$header.toggleClass('z_search-open');   // 激活移动端搜索框
 			$switcher.toggleClass('active');        // 搜索按钮
 			$search.find('input').focus();
@@ -253,7 +259,6 @@ var customSearch;
 		});
 		$(document).click(() => $toc.removeClass('active'));
 
-		// 👇  不知道是干嘛的  懒得看了
 		$toc.on('click', 'a', (e) => {
 			e.preventDefault();
 			e.stopPropagation();
@@ -269,13 +274,19 @@ var customSearch;
 			}
 		});
 
-		const liElements = Array.from($toc.find('li a'));
+		let liElements = Array.from($toc.find('li a'));
 		//function animate above will convert float to int.
-		const getAnchor = () => liElements.map(elem => Math.floor($(elem.getAttribute('href')).offset().top - scrollCorrection));
+		let getAnchor = () => liElements.map(elem => Math.floor($(elem.getAttribute('href')).offset().top - scrollCorrection));
 
 		let anchor = getAnchor();
-		const scrollListener = () => {
-			const scrollTop = $('html').scrollTop() || $('body').scrollTop();
+		let domHeigth = $(document).height();
+		let scrollListener = () => {
+			let scrollTop = $('html').scrollTop() || $('body').scrollTop();
+			if ($(document).height() != domHeigth) { // dom 高度发生变化： 普遍来说，是图片懒加载造成的
+				scrollTop = $('html').scrollTop() || $('body').scrollTop();
+				domHeigth = $(document).height();
+				anchor = getAnchor();
+			}
 			if (!anchor) return;
 			//binary search.
 			let l = 0,
@@ -288,15 +299,22 @@ var customSearch;
 				else r = mid - 1;
 			}
 			$(liElements).removeClass('active').eq(l).addClass('active');
-		}
-		$(window)
-			// .resize(() => {           // resize 事件解绑不掉，在没有目录的界面上时，此处疯狂报错 主要是报 offset().top <--
-			// 	anchor = getAnchor();    // @xaoxuxu 这里监听浏览器窗口大小干嘛？
-			// 	scrollListener();        // TODO: 需要检查
-			// })
-			.scroll(() => {
-				scrollListener()
-			});
+		};
+
+		$(window).scroll(() => {
+			scrollListener();
+		});
+
+		// 监听窗口改变事件
+		let resizeTimer = null;
+		$(window).bind('resize', function (){
+			if (resizeTimer) clearTimeout(resizeTimer);
+			resizeTimer = setTimeout(function(){
+				anchor = getAnchor();
+				scrollListener();
+			} , 100);
+		});
+
 		scrollListener();
 	}
 
@@ -365,7 +383,7 @@ var customSearch;
 		setSearchService();
 		setTabs();
 
-		// 全屏封面底部箭头 无需处理
+		// 全屏封面底部箭头
 		$('.scroll-down').on('click', function () {
 			scrolltoElement('.l_body');
 		});
@@ -390,3 +408,14 @@ var customSearch;
 
 
 })(jQuery);
+
+/*Valine Admin*/
+if(window.location.hash){
+	var checkExist = setInterval(function() {
+	   if (typeof jQuery == 'undefined'){return;}
+	   if ($("#"+window.location.hash.split("#")[1]).length) {
+		  $('html, body').animate({scrollTop: $("#"+window.location.hash.split("#")[1]).offset().top-90}, 1000);
+		  clearInterval(checkExist);
+	   }
+	}, 100);
+}
