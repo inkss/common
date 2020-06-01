@@ -123,16 +123,6 @@ var SearchService = "";
       }
     };
 
-    self.getUrlRelativePath = function (url) {
-      var arrUrl = url.split("//");
-      var start = arrUrl[1].indexOf("/");
-      var relUrl = arrUrl[1].substring(start);
-      if (relUrl.indexOf("?") != -1) {
-        relUrl = relUrl.split("?")[0];
-      }
-      return relUrl;
-    }
-
     /**
      * Generate html for one result
      * @param url : (string) url
@@ -140,10 +130,9 @@ var SearchService = "";
      * @param digest : (string) digest
      */
     self.buildResult = function (url, title, digest) {
-      var result = self.getUrlRelativePath(url);
       var html = "";
       html = "<li>";
-      html += "<a class='result search-result-fix' value='" + result + "'>";
+      html += "<a class='result' href='" + url + "'>";
       html += "<span class='title'>" + title + "</span>";
       if (digest !== "") html += "<span class='digest'>" + digest + "</span>";
       html += "</a>";
@@ -276,7 +265,7 @@ var AlgoliaSearch;
         var digest = "";
         html += self.buildResult(url, title, digest, index+1);
       });
-      html += "<script>$('.result.search-result-fix').click(function(event){var url = this.getAttribute('value');try{pjax.loadUrl(url)}catch(e){$(location).attr('href', url)}setTimeout(function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active');}, 300);});</script>";
+      html += "<script>try{pjax.refresh(document.querySelector('#u-search'))}catch(e){console.log(e)}setTimeout(function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active');}, 300);});</script>";
       return html;
     };
 
@@ -378,7 +367,7 @@ var AzureSearch;
         var digest = row.excerpt || "";
         html += self.buildResult(url, title, digest);
       });
-      html += "<script>$('.result.search-result-fix').click(function(event){var url = this.getAttribute('value');try{pjax.loadUrl(url)}catch(e){$(location).attr('href', url)}setTimeout(function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active');}, 300);});</script>";
+      html += "<script>try{pjax.refresh(document.querySelector('#u-search'))}catch(e){console.log(e)}setTimeout(function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active');}, 300);});</script>";
       return html;
     };
 
@@ -486,7 +475,7 @@ var BaiduSearch;
         if (self.contentSearch(post, queryText))
           html += self.buildResult(post.linkUrl, post.title, post.abstract);
       });
-      html += "<script>$('.result.search-result-fix').click(function(event){var url = this.getAttribute('value');try{pjax.loadUrl(url)}catch(e){$(location).attr('href', url)}setTimeout(function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active');}, 300);});</script>";
+      html += "<script>try{pjax.refresh(document.querySelector('#u-search'))}catch(e){console.log(e)}setTimeout(function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active');}, 300);});</script>";
       return html;
     };
 
@@ -581,7 +570,7 @@ var GoogleCustomSearch = "";
         var digest = (row.htmlSnippet || "").replace('<br>','');
         html += self.buildResult(url, title, digest);
       });
-      html += "<script>$('.result.search-result-fix').click(function(event){var url = this.getAttribute('value');try{pjax.loadUrl(url)}catch(e){$(location).attr('href', url)}setTimeout(function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active');}, 300);});</script>";
+      html += "<script>try{pjax.refresh(document.querySelector('#u-search'))}catch(e){console.log(e)}setTimeout(function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active');}, 300);});</script>";
       return html;
     };
 
@@ -730,7 +719,7 @@ var HexoSearch;
         if (self.contentSearch(post, queryText))
           html += self.buildResult(post.permalink, post.title, post.digest);
       });
-      html += "<script>$('.result.search-result-fix').click(function(event){var url = this.getAttribute('value');try{pjax.loadUrl(url)}catch(e){$(location).attr('href', url)}setTimeout(function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active');}, 300);});</script>";
+      html += "<script>try{pjax.refresh(document.querySelector('#u-search'))}catch(e){console.log(e)}setTimeout(function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active');}, 300);});</script>";
       return html;
     };
 
