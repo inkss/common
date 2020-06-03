@@ -5329,103 +5329,103 @@ ul.list-v >li>a.active {
   filter: blur(10px);
 }
 html {
-  cursor: url("https://img.inkss.cn/web/cursor/left_ptr.png"), default;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
 }
 p,
 input,
 textarea,
 pre > span {
-  cursor: url("https://img.inkss.cn/web/cursor/text.png"), text;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/text.png"), text;
 }
 a {
-  cursor: url("https://img.inkss.cn/web/cursor/pointer.png"), pointer;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
 }
 a p {
-  cursor: url("https://img.inkss.cn/web/cursor/pointer.png"), pointer;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
 }
 a:not([href]) {
-  cursor: url("https://img.inkss.cn/web/cursor/left_ptr.png"), default;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
 }
 a:not([href]) p {
-  cursor: url("https://img.inkss.cn/web/cursor/left_ptr.png"), default;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
 }
 button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-  cursor: url("https://img.inkss.cn/web/cursor/pointer.png"), pointer;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
 }
 button[disabled],
 html input[disabled] {
-  cursor: url("https://img.inkss.cn/web/cursor/left_ptr.png"), default;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
 }
 scrollbar::-webkit-scrollbar-thumb {
-  cursor: url("https://img.inkss.cn/web/cursor/pointer.png"), pointer;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
 }
 .article kbd:hover {
-  cursor: url("https://img.inkss.cn/web/cursor/left_ptr.png"), default;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
 }
 .article .widget {
-  cursor: url("https://img.inkss.cn/web/cursor/left_ptr.png"), default;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
 }
 .cover-wrapper .cover .scroll-down {
-  cursor: url("https://img.inkss.cn/web/cursor/pointer.png"), pointer;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
 }
 .l_body .post section.meta .new-meta-box .new-meta-item .notlink {
-  cursor: url("https://img.inkss.cn/web/cursor/left_ptr.png"), default;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
 }
 #u-search .modal .modal-header .btn-close {
-  cursor: url("https://img.inkss.cn/web/cursor/pointer.png"), pointer;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
 }
 #u-search .modal .modal-footer .nav {
-  cursor: url("https://img.inkss.cn/web/cursor/pointer.png"), pointer;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
 }
 span.btn >a:not([href]):hover {
-  cursor: url("https://img.inkss.cn/web/cursor/circle.png"), not-allowed;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/circle.png"), not-allowed;
 }
 span.btn a:not([href]) {
-  cursor: url("https://img.inkss.cn/web/cursor/left_ptr.png"), default;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
 }
 article .checkbox input {
-  cursor: url("https://img.inkss.cn/web/cursor/pointer.png"), pointer;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
 }
 div.dropmenu {
-  cursor: url("https://img.inkss.cn/web/cursor/left_ptr.png"), default;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
 }
 details summary {
-  cursor: url("https://img.inkss.cn/web/cursor/pointer.png"), pointer;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
 }
 details summary p {
-  cursor: url("https://img.inkss.cn/web/cursor/pointer.png"), pointer;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
 }
 div.tabs ul.nav-tabs li.tab a {
-  cursor: url("https://img.inkss.cn/web/cursor/pointer.png"), pointer;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
 }
 div.tabs ul.nav-tabs li.tab.active a {
-  cursor: url("https://img.inkss.cn/web/cursor/left_ptr.png"), default;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
 }
 .btn-copy {
-  cursor: url("https://img.inkss.cn/web/cursor/pointer.png"), pointer;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
 }
 .fancybox-container .fancybox-stage {
-  cursor: url("https://img.inkss.cn/web/cursor/zoom-out.png"), zoom-out;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/zoom-out.png"), zoom-out;
 }
 .fancybox a {
-  cursor: url("https://img.inkss.cn/web/cursor/zoom-in.png"), zoom-in;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/zoom-in.png"), zoom-in;
 }
 .l_main #comments #valine_container .vcards .vhead span.vnick {
-  cursor: url("https://img.inkss.cn/web/cursor/left_ptr.png"), default;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
 }
 .fancybox-can-zoomIn .fancybox-content {
-  cursor: url("https://img.inkss.cn/web/cursor/zoom-in.png"), zoom-in;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/zoom-in.png"), zoom-in;
 }
 .fancybox-can-pan .fancybox-content,
 .fancybox-can-swipe .fancybox-content {
-  cursor: url("https://img.inkss.cn/web/cursor/openhand.png"), grab;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/openhand.png"), grab;
 }
 .waves-effect,
 a.result.search-result-fix {
-  cursor: url("https://img.inkss.cn/web/cursor/pointer.png"), pointer;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
 }
 .v[data-class=v] a,
 .v[data-class=v] .vbtn,
@@ -5444,17 +5444,17 @@ a.result.search-result-fix {
 .waves-button-input,
 .waves-button:hover,
 .waves-button:visited {
-  cursor: url("https://img.inkss.cn/web/cursor/pointer.png"), pointer !important;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer !important;
 }
 .aplayer .aplayer-info .aplayer-music {
-  cursor: url("https://img.inkss.cn/web/cursor/left_ptr.png"), default !important;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default !important;
 }
 .fancybox-button[disabled],
 .fancybox-button[disabled]:hover {
-  cursor: url("https://img.inkss.cn/web/cursor/circle.png"), not-allowed !important;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/circle.png"), not-allowed !important;
 }
 .fix-cursor-pointer {
-  cursor: url("https://img.inkss.cn/web/cursor/pointer.png"), pointer !important;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer !important;
 }
 .loading {
   display: none;
@@ -5530,7 +5530,7 @@ a.result.search-result-fix {
 textarea#veditor {
   resize: none !important;
   height: auto !important;
-  background-image: url("https://img.inkss.cn/szyink_com/handsome/img/plbj.gif");
+  background-image: url("https://cdn.jsdelivr.net/gh/inkss/common@master/static/img/plbj.gif");
   background-color: #fff;
   transition: all 0.25s ease-in-out 0s;
   background-size: contain;
@@ -5720,7 +5720,7 @@ a:active .bb_spoiler {
   border-bottom: 1px solid rgba(131,145,165,0.8);
   color: inherit;
   text-decoration: none;
-  cursor: url("https://img.inkss.cn/web/cursor/pointer.png"), pointer !important;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png") !important;
   word-break: break-all;
 }
 .c-message a:hover {
@@ -5770,7 +5770,7 @@ a:active .bb_spoiler {
   right: 10px;
   color: #999;
   text-decoration: none;
-  cursor: url("https://img.inkss.cn/web/cursor/pointer.png"), pointer;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png");
   font-size: 25px;
   top: 0;
   line-height: 34px;
