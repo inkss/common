@@ -5318,16 +5318,6 @@ ul.list-v >li>a.active {
   border: 1px solid #f1f1f1;
   border-radius: 6px 6px 0 0;
 }
-.l_body {
-  margin: 16px 0 0;
-}
-.backgroud_blur {
-  background: rgba(255,255,255,0.9) !important;
-  backdrop-filter: unset;
-}
-.backgroud_filter {
-  filter: blur(10px);
-}
 html {
   cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
 }
