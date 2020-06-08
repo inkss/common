@@ -5553,7 +5553,9 @@ a .bb_spoiler,
   background-color: #e8fafe;
   color: #e8fafe;
   text-shadow: none;
-  padding: 3px;
+  padding: 0 3px;
+  margin: 0 1px;
+  border-radius: 6px;
 }
 .bb_spoiler:hover,
 .bb_spoiler:active,
