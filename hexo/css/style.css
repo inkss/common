@@ -5550,18 +5550,17 @@ textarea#veditor::-webkit-scrollbar-thumb:hover {
 .bb_spoiler a,
 a .bb_spoiler,
 .bb_spoiler a.new {
-  background-color: #e8fafe;
-  color: #e8fafe;
+  background-color: #555;
+  color: #555;
   text-shadow: none;
-  padding: 0 3px;
-  margin: 0 1px;
-  border-radius: 6px;
+  padding: 0 2px;
+  margin: 0 2px;
 }
 .bb_spoiler:hover,
 .bb_spoiler:active,
 .bb_spoiler:hover .bb_spoiler,
 .bb_spoiler:active .bb_spoiler {
-  color: #000 !important;
+  color: #fff !important;
 }
 .bb_spoiler:hover {
   opacity: 1;
