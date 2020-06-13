@@ -5423,6 +5423,7 @@ a.result.search-result-fix {
 .v[data-class=v] .vcards .vcard .vhead .vnick,
 .v[data-class=v] .vcards .vcard .vh .vmeta .vat,
 .v[data-class=v] .vwrap .vemojis i,
+.v[data-class=v] .vcards .vcard .vcontent.expand,
 .aplayer .aplayer-pic,
 .aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon,
 .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap,
