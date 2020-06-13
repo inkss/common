@@ -5547,6 +5547,13 @@ textarea#veditor::-webkit-scrollbar-thumb {
 textarea#veditor::-webkit-scrollbar-thumb:hover {
   background-color: #3367d6;
 }
+.waves-button,
+.waves-button-input,
+.waves-button:hover,
+.waves-button:visited,
+.l_side .toc-wrapper {
+  z-index: auto;
+}
 .bb_spoiler,
 .bb_spoiler a,
 a .bb_spoiler,
