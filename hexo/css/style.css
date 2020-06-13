@@ -6152,7 +6152,7 @@ a:active .bb_spoiler {
   100% {
     visibility: hidden;
     -webkit-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0);
+    transform: translate3d(120%, 0, 0);
   }
 }
 @-webkit-keyframes slideOutRight {
@@ -6163,7 +6163,7 @@ a:active .bb_spoiler {
   100% {
     visibility: hidden;
     -webkit-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0);
+    transform: translate3d(120%, 0, 0);
   }
 }
 @-o-keyframes slideOutRight {
@@ -6174,7 +6174,7 @@ a:active .bb_spoiler {
   100% {
     visibility: hidden;
     -webkit-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0);
+    transform: translate3d(120%, 0, 0);
   }
 }
 @keyframes slideOutRight {
@@ -6185,7 +6185,7 @@ a:active .bb_spoiler {
   100% {
     visibility: hidden;
     -webkit-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0);
+    transform: translate3d(120%, 0, 0);
   }
 }
 @-moz-keyframes slideOutUp {
