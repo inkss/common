@@ -1485,6 +1485,13 @@
 			};
 			var z = e.$el.find(".vsubmit"),
 				L = function (t) {
+					var fxxkUA = 'Chrome/78.0.3904.108';
+					if(E.mail.indexOf('123456') != -1 || E.ua.indexOf(fxxkUA) != -1) { 
+						document.getElementById('veditor').value = '';
+						document.getElementsByClassName('vnick vinput')[0].value = '';
+						document.getElementsByClassName('vmail vinput')[0].value = '';
+						return;
+					}
 					if (e.config.requiredFields.indexOf("nick") > -1 && E.nick.length < 3) return v.nick[0].focus(), void e.$el.find(".status-bar").text("" + e.i18n.t("nickFail")).empty(3e3);
 					if (e.config.requiredFields.indexOf("mail") > -1 && !/[\w-\.]+@([\w-]+\.)+[a-z]{2,3}/.test(E.mail)) return v.mail[0].focus(), void e.$el.find(".status-bar").text("" + e.i18n.t("mailFail")).empty(3e3);
 					if ("" == j) return void v.comment[0].focus();
