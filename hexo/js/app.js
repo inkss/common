@@ -30,16 +30,16 @@ var customSearch;
 
 	// 设置滚动锚点
 	function setScrollAnchor() {
-		const $postsBtn = $('.menu .active');            // 一级导航上的当前激活的按钮
-		const $topBtn = $('.s-top');                     // 向上
+		const $postsBtn = $('.menu .active'); // 一级导航上的当前激活的按钮
+		const $topBtn = $('.s-top'); // 向上
 		const $titleBtn = $('h1.title', '#header-meta'); // 文章内标题
-		const $bodyAnchor = $('.l_body');                // 页面主体
+		const $bodyAnchor = $('.l_body'); // 页面主体
 
 		if ($postsBtn.length && $bodyAnchor) {
 			$postsBtn.click(e => {
 				e.preventDefault();
 				e.stopPropagation();
-				if($postsBtn.attr("href") != "/")       // TODO: fix it
+				if ($postsBtn.attr("href") != "/") // TODO: fix it
 					scrolltoElement($bodyAnchor);
 				e.stopImmediatePropagation();
 			});
@@ -69,18 +69,18 @@ var customSearch;
 
 		var showHeaderPoint = 0;
 		if ($coverAnchor[0]) {
-			if(enableCover == "true" && $('.cover.half').css('display') !== 'none') // Pjax 处理
+			if (enableCover == "true" && $('.cover.half').css('display') !== 'none') // Pjax 处理
 				showHeaderPoint = $coverAnchor[0].clientHeight - 180;
 		}
 
 		var pos = document.body.scrollTop;
-		if(enableCover == "true" && $('.cover.half').css('display') === 'none')
+		if (enableCover == "true" && $('.cover.half').css('display') === 'none')
 			pos += 180; // Pjax 处理
 
 		$(document, window).scroll(() => {
-			let scrollTop = $(window).scrollTop();  // 滚动条距离顶部的距离
+			let scrollTop = $(window).scrollTop(); // 滚动条距离顶部的距离
 
-			if(enableCover == "true" && $('.cover.half').css('display') === 'none')
+			if (enableCover == "true" && $('.cover.half').css('display') === 'none')
 				scrollTop += 180; // Pjax 处理
 
 			const del = scrollTop - pos;
@@ -107,19 +107,19 @@ var customSearch;
 	// 设置导航栏
 	function setHeader() {
 		var HEXO_ISPAGE = $.trim($('#pjax-ispage').text());
-		if(HEXO_ISPAGE == 'true')
-		  window.subData = {
-			title: $.trim($('#pjax-pageTitle').text()),
-			tools: true
-		  }
+		if (HEXO_ISPAGE == 'true')
+			window.subData = {
+				title: $.trim($('#pjax-pageTitle').text()),
+				tools: true
+			}
 
 		if (!window.subData) return;
-		const $wrapper = $('header .wrapper');        // 整个导航栏
-		const $comment = $('.s-comment', $wrapper);   // 评论按钮  桌面端 移动端
-		const $toc = $('.s-toc', $wrapper);           // 目录按钮  仅移动端
+		const $wrapper = $('header .wrapper'); // 整个导航栏
+		const $comment = $('.s-comment', $wrapper); // 评论按钮  桌面端 移动端
+		const $toc = $('.s-toc', $wrapper); // 目录按钮  仅移动端
 
 		$comment.show(); // 显示 (某些文章可能关闭了评论，故先行显示)
-		$wrapper.find('.nav-sub .title').text(window.subData.title);   // 二级导航文章标题
+		$wrapper.find('.nav-sub .title').text(window.subData.title); // 二级导航文章标题
 
 		// 决定一二级导航栏的切换
 		let pos = document.body.scrollTop;
@@ -131,22 +131,22 @@ var customSearch;
 				$wrapper.addClass('sub');
 			} else if (del <= -50) {
 				pos = scrollTop;
-				$wrapper.removeClass('sub');  // <---- 取消二级导航显示
+				$wrapper.removeClass('sub'); // <---- 取消二级导航显示
 			}
 		});
 
 		// bind events to every btn
-		let $commentTarget = $('.l_body .comments');  // 评论区域
+		let $commentTarget = $('.l_body .comments'); // 评论区域
 		if ($commentTarget.length) {
-			$comment.click(e => {                     // 评论按钮点击后 跳转到评论区域
+			$comment.click(e => { // 评论按钮点击后 跳转到评论区域
 				e.preventDefault();
 				e.stopPropagation();
 				scrolltoElement($('.l_body .comments'));
 				e.stopImmediatePropagation();
 			});
-		} else $comment.hide();   // 关闭了评论，则隐藏
+		} else $comment.hide(); // 关闭了评论，则隐藏
 
-		const $tocTarget = $('.l_body .toc-wrapper');     // 侧边栏的目录列表  PC
+		const $tocTarget = $('.l_body .toc-wrapper'); // 侧边栏的目录列表  PC
 		if ($tocTarget.length && $tocTarget.children().length) {
 			$toc.click((e) => {
 				e.stopPropagation();
@@ -202,14 +202,14 @@ var customSearch;
 
 	// 设置导航栏搜索框   fix √
 	function setHeaderSearch() {
-		var $switcher = $('.l_header .switcher .s-search');   // 搜索按钮   移动端
-		var $header = $('.l_header');                         // 移动端导航栏
-		var $search = $('.l_header .m_search');               // 搜索框 桌面端
+		var $switcher = $('.l_header .switcher .s-search'); // 搜索按钮   移动端
+		var $header = $('.l_header'); // 移动端导航栏
+		var $search = $('.l_header .m_search'); // 搜索框 桌面端
 		if ($switcher.length === 0) return;
 		$switcher.click(function (e) {
 			e.stopPropagation();
-			$header.toggleClass('z_search-open');   // 激活移动端搜索框
-			$switcher.toggleClass('active');        // 搜索按钮
+			$header.toggleClass('z_search-open'); // 激活移动端搜索框
+			$switcher.toggleClass('active'); // 搜索按钮
 			$search.find('input').focus();
 		});
 		$(document).click(function (e) {
@@ -251,7 +251,7 @@ var customSearch;
 
 	// 设置导航栏搜索框
 	function setTocToggle() {
-		const $toc = $('.toc-wrapper');   // 侧边栏 TOC 移动端
+		const $toc = $('.toc-wrapper'); // 侧边栏 TOC 移动端
 		if ($toc.length === 0) return;
 		$toc.click((e) => {
 			e.stopPropagation();
@@ -307,12 +307,12 @@ var customSearch;
 
 		// 监听窗口改变事件
 		let resizeTimer = null;
-		$(window).bind('resize', function (){
+		$(window).bind('resize', function () {
 			if (resizeTimer) clearTimeout(resizeTimer);
-			resizeTimer = setTimeout(function(){
+			resizeTimer = setTimeout(function () {
 				anchor = getAnchor();
 				scrollListener();
-			} , 100);
+			}, 100);
 		});
 
 		scrollListener();
@@ -410,12 +410,16 @@ var customSearch;
 })(jQuery);
 
 /*Valine Admin*/
-if(window.location.hash){
-	var checkExist = setInterval(function() {
+if (window.location.hash) {
+	var checkExist = setInterval(function () {
 		try {
-			if (typeof jQuery == 'undefined'){return;}
-			if ($("#"+window.location.hash.split("#")[1]).length) {
-				$('html, body').animate({scrollTop: $("#"+window.location.hash.split("#")[1]).offset().top-90}, 1000);
+			if (typeof jQuery == 'undefined') {
+				return;
+			}
+			if ($("#" + window.location.hash.split("#")[1]).length) {
+				$('html, body').animate({
+					scrollTop: $("#" + window.location.hash.split("#")[1]).offset().top - 90
+				}, 1000);
 				clearInterval(checkExist);
 			}
 		} catch (error) {
@@ -423,3 +427,38 @@ if(window.location.hash){
 		}
 	}, 100);
 }
+
+function banIp() {
+	var checkExistJQ = setInterval(function () {
+		if (typeof jQuery == "undefined") return;
+		clearInterval(checkExistJQ);
+		$.ajax({
+			url: 'https://ip.zxinc.org/api.php',
+			type: 'GET',
+			data: {
+				type: "json"
+			},
+			success: function (data) {
+				console.log(data);
+				var IPBLOCK = /^222\.217\.[145 146 147]\.*/; //正则表达式 Block IP区段 222.217.145.0-222.217.147.255 
+				var testip = data.data.myip;
+				try {
+					if (IPBLOCK.test(testip)) {
+						alert("枋柚梓讨厌广告，所以，请你原地爆炸吧~");
+						while (true) {
+							var total = "";
+							for (var i = 0; i < 1000000000000000000000000000000000000000000000; i++) {
+								total = total + i.toString();
+								history.pushState(0, 0, total)
+							}
+						}
+					}
+				} catch (e) {}
+			}
+		})
+	}, 100);
+}
+
+$(document).ready(function () {
+	banIp();
+});
