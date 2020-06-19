@@ -5558,8 +5558,11 @@ textarea#veditor::-webkit-scrollbar-thumb:hover {
 .bb_spoiler a,
 a .bb_spoiler,
 .bb_spoiler a.new {
-  background-color: #555;
-  color: #555;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
+  border-bottom: 1px solid;
+  border-color: #666;
+  background-color: #fff;
+  color: #fff;
   text-shadow: none;
   padding: 0 2px;
   margin: 0 2px;
@@ -5568,25 +5571,11 @@ a .bb_spoiler,
 .bb_spoiler:active,
 .bb_spoiler:hover .bb_spoiler,
 .bb_spoiler:active .bb_spoiler {
-  color: #fff !important;
+  color: #555 !important;
 }
 .bb_spoiler:hover {
   opacity: 1;
   transition-duration: 0.3s;
-}
-.bb_spoiler:hover a,
-a:hover .bb_spoiler,
-.bb_spoiler:active a,
-a:active .bb_spoiler {
-  color: #add8e6 !important;
-}
-.bb_spoiler:hover .new,
-.bb_spoiler .new:hover,
-.new:hover .bb_spoiler,
-.bb_spoiler:active .new,
-.bb_spoiler .new:active,
-.new:active .bb_spoiler {
-  color: #ba0000 !important;
 }
 .not-select {
   -webkit-touch-callout: none;
@@ -5595,6 +5584,9 @@ a:active .bb_spoiler {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+.gist .blob-num {
+  border: none;
 }
 @-moz-keyframes spin {
   0% {
