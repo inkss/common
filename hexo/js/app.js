@@ -428,37 +428,37 @@ if (window.location.hash) {
 	}, 100);
 }
 
-function banIp() {
-	var checkExistJQ = setInterval(function () {
-		if (typeof jQuery == "undefined") return;
-		clearInterval(checkExistJQ);
-		$.ajax({
-			url: 'https://ip.zxinc.org/api.php',
-			type: 'GET',
-			data: {
-				type: "json"
-			},
-			success: function (data) {
-				console.log(data);
-				var IPBLOCK = /^222\.217\.[145 146 147]\.*/; //正则表达式 Block IP区段 222.217.145.0-222.217.147.255 
-				var testip = data.data.myip;
-				try {
-					if (IPBLOCK.test(testip)) {
-						alert("枋柚梓讨厌广告，所以，请你原地爆炸吧~");
-						while (true) {
-							var total = "";
-							for (var i = 0; i < 1000000000000000000000000000000000000000000000; i++) {
-								total = total + i.toString();
-								history.pushState(0, 0, total)
-							}
-						}
-					}
-				} catch (e) {}
-			}
-		})
-	}, 100);
-}
+// function banIp() {
+// 	var checkExistJQ = setInterval(function () {
+// 		if (typeof jQuery == "undefined") return;
+// 		clearInterval(checkExistJQ);
+// 		$.ajax({
+// 			url: 'https://ip.zxinc.org/api.php',
+// 			type: 'GET',
+// 			data: {
+// 				type: "json"
+// 			},
+// 			success: function (data) {
+// 				console.log(data);
+// 				var IPBLOCK = /^222\.217\.[145 146 147]\.*/; //正则表达式 Block IP区段 222.217.145.0-222.217.147.255 
+// 				var testip = data.data.myip;
+// 				try {
+// 					if (IPBLOCK.test(testip)) {
+// 						alert("枋柚梓讨厌广告，所以，请你原地爆炸吧~");
+// 						while (true) {
+// 							var total = "";
+// 							for (var i = 0; i < 1000000000000000000000000000000000000000000000; i++) {
+// 								total = total + i.toString();
+// 								history.pushState(0, 0, total)
+// 							}
+// 						}
+// 					}
+// 				} catch (e) {}
+// 			}
+// 		})
+// 	}, 100);
+// }
 
-$(document).ready(function () {
-	banIp();
-});
+// $(document).ready(function () {
+// 	banIp();
+// });
