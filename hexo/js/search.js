@@ -276,8 +276,7 @@ var AlgoliaSearch;
         var digest = "";
         html += self.buildResult(url, title, digest, index+1);
       });
-      html += "<script>try{pjax.refresh(document.querySelector('#u-search'))}catch(e){console.log(e)}</script>";
-      html += "<script>document.addEventListener('pjax:send',function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active')});</script>";
+      html += "<script>try{pjax.refresh(document.querySelector('#u-search'));document.addEventListener('pjax:send',function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active')});}catch(e){$('#u-search').fadeOut(500);}</script>";
       return html;
     };
 
@@ -379,8 +378,7 @@ var AzureSearch;
         var digest = row.excerpt || "";
         html += self.buildResult(url, title, digest);
       });
-      html += "<script>try{pjax.refresh(document.querySelector('#u-search'))}catch(e){console.log(e)}</script>";
-      html += "<script>document.addEventListener('pjax:send',function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active')});</script>";
+      html += "<script>try{pjax.refresh(document.querySelector('#u-search'));document.addEventListener('pjax:send',function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active')});}catch(e){$('#u-search').fadeOut(500);}</script>";
       return html;
     };
 
@@ -488,8 +486,7 @@ var BaiduSearch;
         if (self.contentSearch(post, queryText))
           html += self.buildResult(post.linkUrl, post.title, post.abstract);
       });
-      html += "<script>try{pjax.refresh(document.querySelector('#u-search'))}catch(e){console.log(e)}</script>";
-      html += "<script>document.addEventListener('pjax:send',function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active')});</script>";
+      html += "<script>try{pjax.refresh(document.querySelector('#u-search'));document.addEventListener('pjax:send',function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active')});}catch(e){$('#u-search').fadeOut(500);}</script>";
       return html;
     };
 
@@ -584,8 +581,7 @@ var GoogleCustomSearch = "";
         var digest = (row.htmlSnippet || "").replace('<br>','');
         html += self.buildResult(url, title, digest);
       });
-      html += "<script>try{pjax.refresh(document.querySelector('#u-search'))}catch(e){console.log(e)}</script>";
-      html += "<script>document.addEventListener('pjax:send',function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active')});</script>";
+      html += "<script>try{pjax.refresh(document.querySelector('#u-search'));document.addEventListener('pjax:send',function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active')});}catch(e){$('#u-search').fadeOut(500);}</script>";
       return html;
     };
 
@@ -734,8 +730,7 @@ var HexoSearch;
         if (self.contentSearch(post, queryText))
           html += self.buildResult(post.permalink, post.title, post.digest);
       });
-      html += "<script>try{pjax.refresh(document.querySelector('#u-search'))}catch(e){console.log(e)}</script>";
-      html += "<script>document.addEventListener('pjax:send',function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active')});</script>";
+      html += "<script>try{pjax.refresh(document.querySelector('#u-search'));document.addEventListener('pjax:send',function(){$('#u-search').fadeOut(500);$('body').removeClass('modal-active')});}catch(e){$('#u-search').fadeOut(500);}</script>";
       return html;
     };
 

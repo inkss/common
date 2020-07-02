@@ -2093,6 +2093,132 @@ div.gallery.stretch>p img {
 .article mjx-container + br {
   display: none;
 }
+#loading-bar-wrapper {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  height: 2px;
+  z-index: 99999;
+}
+.loading-circle {
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  background-color: rgba(250,250,250,0.9);
+}
+.loading-circle img {
+  width: 280px;
+  height: 210px;
+  position: relative;
+  top: 45%;
+  left: 50%;
+  margin-left: -140px;
+  margin-top: -105px;
+}
+#loader-circle {
+  display: block;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #ff5a5a;
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+}
+#loader-circle:before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #5af33f;
+  -webkit-animation: spin 3s linear infinite;
+  animation: spin 3s linear infinite;
+}
+#loader-circle:after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #6dc9ff;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
 .l_main #comments {
   position: relative;
 }
@@ -3785,13 +3911,6 @@ div.hoverbox:hover >div.target {
 .reveal {
   visibility: hidden;
 }
-#loading-bar-wrapper {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  height: 2px;
-  z-index: 99999;
-}
 .l_header {
   position: fixed;
   z-index: 1000;
@@ -5291,33 +5410,6 @@ ul.list-v >li>a.active {
 .l_side .toc-wrapper:empty {
   display: none;
 }
-@media screen and (max-width: 560px) {
-  .fixlicense {
-    display: none;
-  }
-}
-@media screen and (max-width: 490px) {
-  .fixuse {
-    display: none;
-  }
-}
-#valine_container .vwrap {
-  border: 1px dashed #fff !important;
-}
-#valine_container .vcards .vh {
-  border: 1px dashed #fff !important;
-}
-.widget header {
-  font-weight: initial;
-}
-.highlight >table {
-  max-height: 500px;
-}
-.highlight:hover .btn-copy {
-  margin-top: -28px;
-  border: 1px solid #f1f1f1;
-  border-radius: 6px 6px 0 0;
-}
 html {
   cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
 }
@@ -5447,76 +5539,21 @@ a.result.search-result-fix {
 .fix-cursor-pointer {
   cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer !important;
 }
-.loading {
-  display: none;
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999999;
-  background-color: rgba(250,250,250,0.9);
-}
-.loading img {
-  width: 280px;
-  height: 210px;
-  position: relative;
-  top: 45%;
-  left: 50%;
-  margin-left: -140px;
-  margin-top: -105px;
-}
-#loader {
-  display: block;
-  position: relative;
-  left: 50%;
-  top: 50%;
-  width: 150px;
-  height: 150px;
-  margin: -75px 0 0 -75px;
-  border-radius: 50%;
-  border: 3px solid transparent;
-  border-top-color: #ff5a5a;
-  -webkit-animation: spin 1s linear infinite;
-  animation: spin 1s linear infinite;
-}
-#loader:before {
-  content: "";
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  right: 5px;
-  bottom: 5px;
-  border-radius: 50%;
-  border: 3px solid transparent;
-  border-top-color: #5af33f;
-  -webkit-animation: spin 3s linear infinite;
-  animation: spin 3s linear infinite;
-}
-#loader:after {
-  content: "";
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  bottom: 15px;
-  border-radius: 50%;
-  border: 3px solid transparent;
-  border-top-color: #6dc9ff;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite;
-}
-@-webkit-keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
+@media screen and (max-width: 560px) {
+  .fixlicense {
+    display: none;
   }
-  100% {
-    -webkit-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
+}
+@media screen and (max-width: 490px) {
+  .fixuse {
+    display: none;
   }
+}
+#valine_container .vwrap {
+  border: 1px dashed #fff !important;
+}
+#valine_container .vcards .vh {
+  border: 1px dashed #fff !important;
 }
 textarea#veditor {
   resize: none !important;
@@ -5546,6 +5583,17 @@ textarea#veditor::-webkit-scrollbar-thumb {
 }
 textarea#veditor::-webkit-scrollbar-thumb:hover {
   background-color: #3367d6;
+}
+.widget header {
+  font-weight: initial;
+}
+.highlight >table {
+  max-height: 500px;
+}
+.highlight:hover .btn-copy {
+  margin-top: -28px;
+  border: 1px solid #f1f1f1;
+  border-radius: 6px 6px 0 0;
 }
 .waves-button,
 .waves-button-input,
@@ -5587,54 +5635,6 @@ a .bb_spoiler,
 }
 .gist .blob-num {
   border: none;
-}
-@-moz-keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@-webkit-keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@-o-keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
 }
 .animated {
   -webkit-animation-duration: 1s;
@@ -6304,143 +6304,24 @@ a .bb_spoiler,
     transform: translateY(-100%);
   }
 }
-# 颜色：clear # 外星人,
-light # 外星人,
-gray # 外星人,
-red # 外星人,
-yellow # 外星人,
-green # 外星人,
-cyan # 外星人,
-blue # 外星人,
-div.note # 外星人,
-# 颜色：clear.alien::before,
-light.alien::before,
-gray.alien::before,
-red.alien::before,
-yellow.alien::before,
-green.alien::before,
-cyan.alien::before,
-blue.alien::before,
 div.note.alien::before {
   content: '\f8f5';
 }
-# 颜色：clear # 怪物,
-light # 怪物,
-gray # 怪物,
-red # 怪物,
-yellow # 怪物,
-green # 怪物,
-cyan # 怪物,
-blue # 怪物,
-div.note # 怪物,
-# 颜色：clear.alien-monster::before,
-light.alien-monster::before,
-gray.alien-monster::before,
-red.alien-monster::before,
-yellow.alien-monster::before,
-green.alien-monster::before,
-cyan.alien-monster::before,
-blue.alien-monster::before,
 div.note.alien-monster::before {
   content: '\f8f6';
 }
-# 颜色：clear # 蝙蝠,
-light # 蝙蝠,
-gray # 蝙蝠,
-red # 蝙蝠,
-yellow # 蝙蝠,
-green # 蝙蝠,
-cyan # 蝙蝠,
-blue # 蝙蝠,
-div.note # 蝙蝠,
-# 颜色：clear.bat::before,
-light.bat::before,
-gray.bat::before,
-red.bat::before,
-yellow.bat::before,
-green.bat::before,
-cyan.bat::before,
-blue.bat::before,
 div.note.bat::before {
   content: '\f6b5';
 }
-# 颜色：clear # 铃铛,
-light # 铃铛,
-gray # 铃铛,
-red # 铃铛,
-yellow # 铃铛,
-green # 铃铛,
-cyan # 铃铛,
-blue # 铃铛,
-div.note # 铃铛,
-# 颜色：clear.bell::before,
-light.bell::before,
-gray.bell::before,
-red.bell::before,
-yellow.bell::before,
-green.bell::before,
-cyan.bell::before,
-blue.bell::before,
 div.note.bell::before {
   content: '\f0f3';
 }
-# 颜色：clear # 生化病毒,
-light # 生化病毒,
-gray # 生化病毒,
-red # 生化病毒,
-yellow # 生化病毒,
-green # 生化病毒,
-cyan # 生化病毒,
-blue # 生化病毒,
-div.note # 生化病毒,
-# 颜色：clear.biohazard::before,
-light.biohazard::before,
-gray.biohazard::before,
-red.biohazard::before,
-yellow.biohazard::before,
-green.biohazard::before,
-cyan.biohazard::before,
-blue.biohazard::before,
 div.note.biohazard::before {
   content: '\f780';
 }
-# 颜色：clear # 大笑 - 眨眼,
-light # 大笑 - 眨眼,
-gray # 大笑 - 眨眼,
-red # 大笑 - 眨眼,
-yellow # 大笑 - 眨眼,
-green # 大笑 - 眨眼,
-cyan # 大笑 - 眨眼,
-blue # 大笑 - 眨眼,
-div.note # 大笑 - 眨眼,
-# 颜色：clear.laugh-wink::before,
-light.laugh-wink::before,
-gray.laugh-wink::before,
-red.laugh-wink::before,
-yellow.laugh-wink::before,
-green.laugh-wink::before,
-cyan.laugh-wink::before,
-blue.laugh-wink::before,
 div.note.laugh-wink::before {
   content: '\f59c';
 }
-# 颜色：clear # 懒洋洋的头,
-light # 懒洋洋的头,
-gray # 懒洋洋的头,
-red # 懒洋洋的头,
-yellow # 懒洋洋的头,
-green # 懒洋洋的头,
-cyan # 懒洋洋的头,
-blue # 懒洋洋的头,
-div.note # 懒洋洋的头,
-# 颜色：clear.poo::before,
-light.poo::before,
-gray.poo::before,
-red.poo::before,
-yellow.poo::before,
-green.poo::before,
-cyan.poo::before,
-blue.poo::before,
 div.note.poo::before {
   content: '\f2fe';
 }
