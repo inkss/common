@@ -410,22 +410,14 @@ var customSearch;
 
 })(jQuery);
 
-/*Valine Admin*/
-if (window.location.hash) {
-	var checkExist = setInterval(function () {
-		try {
-			if (typeof jQuery == 'undefined') {
-				return;
-			}
-			if ($("#" + window.location.hash.split("#")[1]).length) {
-				$('html, body').animate({
-					scrollTop: $("#" + window.location.hash.split("#")[1]).offset().top - 90
-				}, 1000);
-				clearInterval(checkExist);
-			}
-		} catch (error) {
-			clearInterval(checkExist);
-		}
+/*锚点定位*/
+if(window.location.hash){
+	var checkExist = setInterval(function() {
+	   if (typeof jQuery == 'undefined'){return;}
+	   if ($("#"+decodeURI(window.location.hash.split("#")[1]).replace(/\ /g,"-")).length) {
+		  $('html, body').animate({scrollTop: $("#"+decodeURI(window.location.hash.split("#")[1]).replace(/\ /g,"-")).offset().top-10}, 500);
+		  clearInterval(checkExist);
+	   }
 	}, 100);
 }
 
