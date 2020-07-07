@@ -207,16 +207,14 @@ small {
 }
 sub,
 sup {
-  font-size: 65%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
+  font-size: 50%;
+  line-height: 1em;
 }
 sup {
-  top: -0.6em;
+  vertical-align: text-top;
 }
 sub {
-  bottom: -0.3em;
+  vertical-align: text-bottom;
 }
 img {
   border: 0;
@@ -1658,6 +1656,9 @@ pre {
 .highlight.json .code:before {
   content: "JSON";
 }
+.highlight.diff .code:before {
+  content: "diff";
+}
 .highlight.html .code:before {
   content: "HTML";
 }
@@ -1729,6 +1730,12 @@ pre {
 .highlight pre .line,
 .highlight pre .params {
   color: rgba(85,85,85,0.9);
+}
+.highlight pre .line .addition {
+  color: #3fa33f;
+}
+.highlight pre .line .deletion {
+  color: #ee2b29;
 }
 .highlight pre .marked {
   background-color: rgba(254,213,66,0.4);
@@ -1956,6 +1963,98 @@ pre {
 }
 .article pre:hover .btn-copy {
   opacity: 1;
+}
+.darkmode-toggle {
+  z-index: 100000;
+}
+.darkmode--activated .MiniValine .vpage .more {
+  background: #21232f;
+}
+.darkmode--activated img {
+  filter: brightness(30%);
+}
+.darkmode--activated .MiniValine .vlist .vcard .vcomment-body .text-wrapper .vcomment.expand:before {
+  background: linear-gradient(180deg, rgba(246,246,246,0), rgba(0,0,0,0.9));
+}
+.darkmode--activated .MiniValine .vlist .vcard .vcomment-body .text-wrapper .vcomment.expand:after {
+  background: rgba(0,0,0,0.9);
+}
+.darkmode--activated .MiniValine .vlist .vcard .vcomment-body .text-wrapper .vcomment pre {
+  background: #282c34;
+  border: 1px solid #282c34;
+}
+.darkmode--activated .MiniValine .vinputs-area .vextra-area .vsmile-icons {
+  background: transparent;
+}
+.darkmode--activated .container {
+  background: #21232f;
+}
+.darkmode--activated .blur {
+  background: #21232f !important;
+}
+.darkmode--activated .loading-bar-wrapper {
+  background: #21232f;
+}
+.darkmode--activated .nav-main .u-search-input {
+  background: #87ceeb !important;
+}
+.darkmode--activated .list-v {
+  background: #21232f;
+}
+.darkmode--activated .vsubmit {
+  background: #21232f;
+}
+.darkmode--activated .l_header ul>li>a:hover {
+  background: rgba(33,150,243,0.2);
+}
+.darkmode--activated #archive-page .archive .archive-post a:hover {
+  background: rgba(33,150,243,0.2);
+}
+.darkmode--activated .l_main .article .prev-next>a {
+  background: #21232f;
+}
+.darkmode--activated .article blockquote {
+  background: #21232f;
+}
+.darkmode--activated .highlight>table {
+  background: #282c34;
+}
+.darkmode--activated .gutter {
+  background: #282c34 !important;
+  background-color: #282c34 !important;
+}
+.darkmode--activated .highlight figcaption {
+  background-color: #21252b;
+}
+.darkmode--activated .highlight {
+  border: 1px solid #21252b !important;
+  background: #282c34;
+}
+.darkmode--activated details>summary {
+  background: #282c34;
+}
+.darkmode--activated details {
+  border: 1px solid #282c34;
+  background: #282c34;
+}
+.darkmode--activated .note {
+  background: #282c34 !important;
+}
+.darkmode--activated .nav-tabs {
+  background: #282c34 !important;
+}
+.darkmode--activated .tabs {
+  background: #282c34 !important;
+}
+.darkmode--activated .btns a {
+  background: #282c34 !important;
+}
+.darkmode--activated .tab.active a {
+  background: #87ceeb !important;
+}
+.darkmode--activated .widget>.content ul.entry a:hover,
+.darkmode--activated .widget>.content ul.popular-posts a:hover {
+  background: rgba(33,150,243,0.2);
 }
 div.gallery {
   margin: 0.5rem 0;
@@ -2593,6 +2692,8 @@ div.gallery.stretch>p img {
 }
 .article img.inline {
   display: inline;
+  vertical-align: middle;
+  transform: translateY(-4px);
 }
 @media screen and (max-width: 500px) {
   .article img {
