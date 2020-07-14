@@ -5134,6 +5134,20 @@ ul.list-v >li>a.active {
   border-top-right-radius: 8px;
   line-height: 0;
 }
+.widget.blogger .content >.avatar.circle {
+  border-radius: 100%;
+  width: 128px;
+  height: 128px;
+  margin-top: 32px;
+  margin-bottom: 0.5rem;
+}
+.widget.blogger .content >.avatar.circle img {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 @media screen and (max-width: 768px) {
   .widget.blogger .content >.avatar {
     width: 80px;
