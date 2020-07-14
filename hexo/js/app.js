@@ -121,6 +121,7 @@ var customSearch;
 		const $toc = $('.s-toc', $wrapper); // 目录按钮  仅移动端
 
 		$comment.show(); // 显示 (某些文章可能关闭了评论，故先行显示)
+		$toc.show(); // 显示 (某些文章可能无目录，故先行显示)
 		$wrapper.find('.nav-sub .title').text(window.subData.title); // 二级导航文章标题
 
 		// 决定一二级导航栏的切换
@@ -164,7 +165,7 @@ var customSearch;
 				$tocTarget.removeClass('active');
 				$toc.removeClass('active');
 			});
-		} else $toc.remove();
+		} else $toc.hide();
 	}
 
 	// 设置导航栏菜单选中状态
