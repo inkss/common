@@ -116,11 +116,11 @@ var customSearch;
 			}
 
 		if (!window.subData) return;
-		const $wrapper = $('header .wrapper'); // 整个导航栏
-		const $comment = $('.s-comment', $wrapper); // 评论按钮  桌面端 移动端
-		const $toc = $('.s-toc', $wrapper); // 目录按钮  仅移动端
+		const $wrapper = $('header .wrapper');        // 整个导航栏
+		const $comment = $('.s-comment', $wrapper);   // 评论按钮  桌面端 移动端
+		const $toc = $('.s-toc', $wrapper);           // 目录按钮  仅移动端
 		
-		$wrapper.find('.nav-sub .title').text(window.subData.title); // 二级导航文章标题
+		$wrapper.find('.nav-sub .title').text(window.subData.title);   // 二级导航文章标题
 
 		// 决定一二级导航栏的切换
 		let pos = document.body.scrollTop;
