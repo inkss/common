@@ -39,7 +39,7 @@ html {
   width: 100%;
   height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, Menlo, Monaco, monospace, sans-serif;
-  font-size: 16px;
+  font-size: 0.9375rem;
 }
 html >::-webkit-scrollbar {
   height: 4px;
@@ -1498,7 +1498,7 @@ pre {
   top: 0;
   right: 0;
   color: rgba(68,68,68,0.65);
-  font-size: 0.75rem;
+  font-size: 12px;
   padding: 4px 8px;
 }
 .hljs.md:before,
@@ -1588,7 +1588,7 @@ pre {
   font-size: 0.8125rem;
   font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace, courier, sans-serif;
   border-radius: 4px;
-  border: 1px solid #d8edfb;
+  border: 1px solid transparent;
   line-height: 1.5;
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
@@ -1596,14 +1596,20 @@ pre {
   -moz-transition: all 0.28s ease;
   -webkit-transition: all 0.28s ease;
   -o-transition: all 0.28s ease;
+  filter: grayscale(100%);
+}
+.highlight:hover {
+  border-color: #c5e5fa;
+  filter: grayscale(0%);
 }
 .highlight figcaption {
+  font-size: 12px;
   position: sticky;
   left: 0;
   padding: 4px 8px 4px 8px;
   background-color: #ddf0fc;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+  border-top-left-radius: calc(4px - 1px);
+  border-top-right-radius: calc(4px - 1px);
 }
 .highlight >table {
   overflow: auto;
@@ -1658,7 +1664,7 @@ pre {
   top: 0;
   right: 0;
   color: rgba(68,68,68,0.65);
-  font-size: 0.75rem;
+  font-size: 12px;
   padding: 4px 8px;
 }
 .highlight.md .code:before,
@@ -1950,12 +1956,12 @@ pre {
   user-select: none;
   -webkit-appearance: none;
   font-family: Menlo, SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace, courier, sans-serif;
-  font-size: calc(0.8125rem - 1px);
+  font-size: 11.5px;
   font-weight: bold;
   padding: 4px 8px;
   color: rgba(68,68,68,0.65);
   background: #fff;
-  border-radius: 2px;
+  border-radius: 3px;
   box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
   position: absolute;
   top: 0;
@@ -3156,9 +3162,6 @@ div.gallery.stretch>p img {
 }
 .article .article-entry> h5 {
   font-weight: bold;
-}
-.article .article-entry> p {
-  font-size: 0.9375rem;
 }
 article .readmore {
   margin-top: 0.6rem;
