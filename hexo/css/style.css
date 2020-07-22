@@ -4408,6 +4408,16 @@ ul.list-v >li>a {
   margin: 0 4px;
   border-radius: 4px;
 }
+@media screen and (max-width: 1024px) {
+  ul.list-v >li>a {
+    line-height: 40px;
+  }
+}
+@media screen and (max-width: 768px) {
+  ul.list-v >li>a {
+    line-height: 44px;
+  }
+}
 ul.list-v >li>a:hover,
 ul.list-v >li>a.active,
 ul.list-v >li>a:active {
@@ -4422,8 +4432,6 @@ ul.list-v >li>a.current {
 }
 ul.list-v >li>a:hover {
   color: #2b7dbe;
-  border-left-color: #2196f3;
-  border-bottom-color: #2196f3;
   background: #e8f4fd;
 }
 ul.list-v >li>a:active,
@@ -4439,26 +4447,26 @@ ul.list-v >li>a.active {
 .l_header .menu >ul>li>a >i {
   margin-right: 4px;
 }
-.l_header ul>li>a {
+.l_header ul.nav-list-h>li>a {
   color: #696969;
 }
-.l_header ul>li>a.current {
+.l_header ul.nav-list-h>li>a.current {
   border-left-color: rgba(33,150,243,0.8);
   border-bottom-color: rgba(33,150,243,0.8);
 }
-.l_header ul>li>a:active,
-.l_header ul>li>a.active {
+.l_header ul.nav-list-h>li>a:active,
+.l_header ul.nav-list-h>li>a.active {
   color: #2196f3;
   border-left-color: #2196f3;
   border-bottom-color: #2196f3;
 }
-.l_header ul>li>a:hover {
+.l_header ul.nav-list-h>li>a:hover {
   color: #2b7dbe;
   border-left-color: #2196f3;
   border-bottom-color: #2196f3;
   background: #e8f4fd;
 }
-.l_header ul>li>a i.music {
+.l_header ul.nav-list-h>li>a i.music {
   animation: rotate-effect 1.5s linear infinite;
 }
 @-moz-keyframes rotate-effect {
