@@ -1,32 +1,9 @@
 ! Title: Desktop Adguard filter
-! TimeUpdated: 1593395547
+! TimeUpdated: 1595815527
 
-
-! >>>> 白名单
-@@||szyink.com^$important,document,~extension
-@@||localhost^$important,document,~extension
-@@||127.0.0.1^$important,document,~extension
-
-! >>>> IP 定位类过滤
-||ip.zxinc.org^
-||api.ip.sb^
-ip111.cn##div.container:nth-child(3) > div:nth-child(2)
-blog.csdn.net###mainBox > main:last-child > div.recommend-box:nth-child(11)
-
-! >>>> 有道翻译和腾讯翻译
-fanyi.qq.com##div.layout-container:nth-child(2) > div.textpanel-banner:nth-child(4)
-fanyi.qq.com##div.layout-wrap:first-child > div.header > div.header-container.clearfix > div.header-nav.clearfix:nth-child(8)
-fanyi.qq.com##div.layout-wrap:first-child > div.header > div.header-container.clearfix > div.header-download-btn.material-design:nth-child(4)
-fanyi.qq.com##div.layout-container:nth-child(2) > div.textpanel:nth-child(2) > div.rightLayer.ani-small:first-child
+! >>>> 有道翻译
 fanyi.youdao.com##div.fanyi:nth-child(2) > div.inside__products:last-child
 fanyi.youdao.com##div.side__nav:nth-child(5)
 fanyi.youdao.com##div.fanyi__nav:first-child > div.fanyi__nav__container > ul.fanyi__nav__list:first-child
 fanyi.youdao.com##div.fanyi__footer:nth-child(4)
 fanyi.youdao.com###transMan
-fanyi.qq.com##div.rightLayer
-fanyi.qq.com##div.layout-container:nth-child(2) > div.textpanel:nth-child(2) > div.rightLayer.ani-small.hiden:first-child
-fanyi.qq.com##div.layout-container:nth-child(2) > div.dict:last-child
-
-! >>>> 尝试过滤 sw.js
-||*/service-worker.js$important
-||*/sw.js$important

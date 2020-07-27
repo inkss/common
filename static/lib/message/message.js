@@ -3,7 +3,7 @@ $.extend({
         var b = {
             title: "",
             message: " 操作成功",
-            time: "300000",
+            time: "3000",
             type: "success",
             showClose: !0,
             autoClose: !0,
@@ -23,7 +23,7 @@ $.extend({
             j.remove(), b.onClose(b), clearTimeout(c)
         }, $(".c-message").remove(), i.append(j), j.one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function () {
             j.removeClass("messageFadeInDown")
-        }), i.on("click", ".c-message--close", function (a) {
+        }), i.one("click", ".c-message--close", function (a) {
             d()
         }), b.autoClose && (c = setTimeout(function () {
             d()
