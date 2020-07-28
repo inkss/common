@@ -327,12 +327,15 @@ table::-webkit-scrollbar-track-piece {
   background: transparent;
 }
 table::-webkit-scrollbar-thumb {
-  background: rgba(118,118,118,0.4);
+  background: transparent;
   cursor: pointer;
-  border-radius: 2px;
+  border-radius: 4px;
 }
-table::-webkit-scrollbar-thumb:hover {
-  background: #767676;
+table:hover::-webkit-scrollbar-thumb {
+  background: rgba(68,68,68,0.5);
+}
+table:hover::-webkit-scrollbar-thumb:hover {
+  background: #ff5722;
 }
 table th {
   background-color: #f1f1f1;
@@ -366,6 +369,7 @@ th {
 }
 .article span.btn a {
   text-decoration: none;
+  border-bottom: none;
 }
 .article span.btn >a {
   display: inline-block;
@@ -518,6 +522,7 @@ th {
   -webkit-transition: all 0.28s ease;
   -o-transition: all 0.28s ease;
   text-decoration: none;
+  border-bottom: none;
   margin: 8px;
   margin-top: calc(1.25 * 16px + 32px);
   min-width: 120px;
@@ -5721,11 +5726,13 @@ ul.list-v >li>a.active {
   -moz-transition: all 0.28s ease;
   -webkit-transition: all 0.28s ease;
   -o-transition: all 0.28s ease;
-  line-height: 1.6em;
+  line-height: 1.2em;
+  margin: 4px 0;
+  border-bottom: 1px solid transparent;
 }
 .widget.tagcloud .content a:hover {
   color: #ff5722 !important;
-  text-decoration: underline;
+  border-bottom: 1px solid #ff5722;
 }
 .widget.related_posts .content {
   font-weight: bold;
