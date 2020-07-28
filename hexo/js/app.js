@@ -393,6 +393,15 @@ var customSearch;
 		try {
 			// addEventListener是先绑定先执行，此处的绑定后执行
 			document.addEventListener('pjax:complete', function () {
+				if(window.location.hash){
+					var checkExist = setInterval(function() {
+					if (typeof jQuery == 'undefined'){return;}
+					if ($("#"+decodeURI(window.location.hash.split("#")[1]).replace(/\ /g,"-")).length) {
+						scrolltoElement( $("#"+decodeURI(window.location.hash.split("#")[1]).replace(/\ /g,"-")));
+						clearInterval(checkExist);
+					}
+					}, 100);
+				}
 				$(function () {
 					restData();
 					setHeader();
