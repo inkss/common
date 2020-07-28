@@ -3500,14 +3500,11 @@ article .readmore >a {
 .cover .list-h {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   flex-wrap: wrap;
   align-items: stretch;
-  margin: 2px;
   border-radius: 4px;
 }
 .cover .list-h a {
-  margin: 2px;
   flex: 1;
   display: flex;
 }
@@ -3516,12 +3513,24 @@ article .readmore >a {
   border-radius: 2px;
   margin: 8px 4px;
   min-width: 40px;
-  max-width: 50px;
+  max-width: 44px;
+}
+@media screen and (max-width: 768px) {
+  .cover .list-h a img {
+    min-width: 36px;
+    max-width: 40px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .cover .list-h a img {
+    min-width: 32px;
+    max-width: 36px;
+  }
 }
 @media screen and (max-width: 375px) {
   .cover .list-h a img {
-    min-width: 32px;
-    max-width: 40px;
+    min-width: 28px;
+    max-width: 32px;
   }
 }
 .cover-wrapper .cover .cover-body .menu {
@@ -3586,7 +3595,6 @@ article .readmore >a {
 .cover-wrapper .cover .cover-body .menu.dock .list-h a p,
 .cover-wrapper .cover .cover-body .menu.featured .list-h a p,
 .cover-wrapper .cover .cover-body .menu.focus .list-h a p {
-  font-weight: bold;
   font-size: 0.875rem;
 }
 .cover-wrapper .cover .cover-body .menu.dock .list-h a.active,
@@ -3618,11 +3626,14 @@ article .readmore >a {
 }
 .cover-wrapper .cover .cover-body .menu.dock .list-h {
   flex-wrap: nowrap;
+  margin: 4px;
+}
+.cover-wrapper .cover .cover-body .menu.dock .list-h a+a {
+  margin-left: 4px;
 }
 @media screen and (max-width: 500px) {
   .cover-wrapper .cover .cover-body .menu.dock .list-h {
     overflow-x: scroll;
-    margin: 4px;
   }
   .cover-wrapper .cover .cover-body .menu.dock .list-h::-webkit-scrollbar {
     height: 0;
@@ -3639,12 +3650,6 @@ article .readmore >a {
   .cover-wrapper .cover .cover-body .menu.dock .list-h::-webkit-scrollbar-thumb:hover {
     background: #767676;
   }
-  .cover-wrapper .cover .cover-body .menu.dock .list-h a {
-    margin: 0;
-  }
-  .cover-wrapper .cover .cover-body .menu.dock .list-h a+a {
-    margin-left: 4px;
-  }
 }
 @supports (backdrop-filter: blur(20px)) {
   .cover-wrapper .cover .cover-body .menu.dock {
@@ -3652,7 +3657,11 @@ article .readmore >a {
     backdrop-filter: saturate(200%) blur(20px);
   }
 }
+.cover-wrapper .cover .cover-body .menu.featured .list-h {
+  margin: -2px;
+}
 .cover-wrapper .cover .cover-body .menu.featured .list-h a {
+  margin: 2px;
   background: rgba(255,255,255,0.5);
 }
 @supports (backdrop-filter: blur(20px)) {
@@ -3661,22 +3670,26 @@ article .readmore >a {
     backdrop-filter: saturate(200%) blur(20px);
   }
 }
-@media screen and (min-width: 500px) {
-  .cover-wrapper .cover .cover-body .menu.focus {
-    transition: all 0.28s ease;
-    -moz-transition: all 0.28s ease;
-    -webkit-transition: all 0.28s ease;
-    -o-transition: all 0.28s ease;
-  }
+.cover-wrapper .cover .cover-body .menu.focus {
+  transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+}
+.cover-wrapper .cover .cover-body .menu.focus .list-h {
+  margin: 2px;
+}
+.cover-wrapper .cover .cover-body .menu.focus:hover {
+  background: rgba(255,255,255,0.5);
+}
+@supports (backdrop-filter: blur(20px)) {
   .cover-wrapper .cover .cover-body .menu.focus:hover {
     background: rgba(255,255,255,0.5);
+    backdrop-filter: saturate(200%) blur(20px);
   }
-  @supports (backdrop-filter: blur(20px)) {
-    .cover-wrapper .cover .cover-body .menu.focus:hover {
-      background: rgba(255,255,255,0.5);
-      backdrop-filter: saturate(200%) blur(20px);
-    }
-  }
+}
+.cover-wrapper .cover .cover-body .menu.focus .list-h a {
+  margin: 2px;
 }
 .cover-wrapper .cover .cover-body .menu.focus .list-h a:hover {
   opacity: 1;
