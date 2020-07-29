@@ -391,7 +391,13 @@ var customSearch;
 
 
 		try {
-			// addEventListener是先绑定先执行，此处的绑定后执行
+			document.addEventListener('pjax:complete', function () {
+				let $bodyAnchor = $('.l_body'); // 页面主体
+				if ($bodyAnchor) {
+					scrolltoElement($bodyAnchor);
+				}
+			});
+
 			document.addEventListener('pjax:complete', function () {
 				if(window.location.hash){
 					var checkExist = setInterval(function() {
