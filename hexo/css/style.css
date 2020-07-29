@@ -6229,6 +6229,14 @@ code:not([class]) {
 .gist .blob-num {
   border: none;
 }
+.mainColor {
+  color: #2196f3;
+  font-size: 125%;
+}
+.footStyle {
+  font-size: 10em;
+  color: #a6d5fa;
+}
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
