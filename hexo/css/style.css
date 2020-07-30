@@ -3437,6 +3437,10 @@ article .readmore {
   align-content: center;
   color: #555;
   padding: 16px;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 .cover-wrapper .cover .cover-body div.b {
   margin-top: 8vh;
@@ -3625,6 +3629,10 @@ article .readmore {
   flex-wrap: wrap;
   align-items: stretch;
   border-radius: 4px;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 .cover .list-h a {
   flex: 1;
@@ -5098,6 +5106,34 @@ ul.list-v >li>a.active {
 .l_main .article .prev-next .next p.title {
   text-align: right;
 }
+div#rightmenu-wrapper {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+ul.list-v.rightmenu {
+  display: block;
+}
+ul.list-v.rightmenu li.navigation {
+  display: flex;
+}
+ul.list-v.rightmenu li.navigation .nav {
+  margin: 0;
+  padding: 0 8px;
+}
+ul.list-v.rightmenu li.navigation .nav i {
+  margin: 0;
+}
+ul.list-v.rightmenu li.navigation .nav:first-child {
+  margin-left: 12px;
+}
+ul.list-v.rightmenu li.navigation .nav:last-child {
+  margin-right: 12px;
+}
 #u-search {
   display: none;
   position: fixed;
@@ -6146,6 +6182,12 @@ code:not([class]) {
 .footStyle {
   font-size: 10em;
   color: #a6d5fa;
+}
+.fixIconColor {
+  color: #a6d5fa !important;
+}
+.fixIconColor:hover {
+  color: #2196f3 !important;
 }
 .animated {
   -webkit-animation-duration: 1s;
