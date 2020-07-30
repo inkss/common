@@ -824,10 +824,12 @@ article .checkbox p {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
 }
-div.dropmenu {
+div.dropmenu-wrapper {
   display: inline-block;
+}
+div.dropmenu {
   position: relative;
-  cursor: default;
+  display: inline-block;
   transition: all 0.28s ease;
   -moz-transition: all 0.28s ease;
   -webkit-transition: all 0.28s ease;
@@ -1006,23 +1008,26 @@ details[open] >div.content > .fancybox:last-child,
 details[open] >div.content > details:last-child {
   margin-bottom: 0;
 }
-.article div.link-card {
-  text-align: center;
-  margin: 0.4rem auto;
-}
 .article a.link-card {
+  margin: 0.2rem auto;
   background: #f6f6f6;
   display: inline-flex;
   align-items: center;
   cursor: pointer;
   text-align: center;
-  max-width: 320px;
+  min-width: 200px;
+  max-width: 361px;
   color: #555;
   border-radius: 8px;
 }
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 425px) {
   .article a.link-card {
     max-width: 100%;
+  }
+}
+@media screen and (max-width: 375px) {
+  .article a.link-card {
+    width: 100%;
   }
 }
 .article a.link-card:hover {
@@ -1063,8 +1068,9 @@ details[open] >div.content > details:last-child {
   font-weight: bold;
 }
 .article a.link-card p.url {
+  flex-shrink: 0;
   color: rgba(68,68,68,0.65);
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
 }
 audio,
 video {
@@ -2930,14 +2936,11 @@ div.gallery.stretch>p img {
   background: #ffeee8;
 }
 .article a:not([class]) {
-  border-bottom: 1px solid #2196f3;
+  text-decoration: underline;
   transition: all 0.1s ease;
   -moz-transition: all 0.1s ease;
   -webkit-transition: all 0.1s ease;
   -o-transition: all 0.1s ease;
-}
-.article a:not([class]):hover {
-  border-bottom-color: #ff5722;
 }
 .article {
   color: #555;
@@ -3006,8 +3009,8 @@ div.gallery.stretch>p img {
 }
 .article h1,
 .article h2 {
-  padding-bottom: 0.2em;
-  margin-bottom: 0.5em;
+  padding-bottom: 0.2rem;
+  margin-bottom: 1rem;
   border-bottom: 1px solid rgba(68,68,68,0.1);
 }
 .article h1 {
@@ -3060,7 +3063,8 @@ div.gallery.stretch>p img {
 }
 .article s,
 .article del {
-  opacity: 0.7;
+  color: #999;
+  text-decoration-color: #fe9f9a;
 }
 .article u {
   color: #444;
@@ -3071,9 +3075,15 @@ div.gallery.stretch>p img {
   color: #444;
   border-bottom: 4px dotted #fe5f58;
 }
+.article wavy {
+  color: #444;
+  text-decoration-style: wavy;
+  text-decoration-line: underline;
+  text-decoration-color: #fe5f58;
+}
 .article psw {
   color: transparent;
-  background: #aaa;
+  background: #7f7f7f;
   border-radius: 2px;
   transition: all 0.28s ease;
   -moz-transition: all 0.28s ease;
@@ -3232,6 +3242,7 @@ div.gallery.stretch>p img {
 }
 .article code:not([class]) {
   font-size: 0.8125rem;
+  color: #e8f9ff;
   border-radius: 2px;
 }
 @media screen and (max-width: 500px) {
@@ -3358,7 +3369,6 @@ div.gallery.stretch>p img {
   position: relative;
   pointer-events: none;
   margin-top: 0;
-  margin-bottom: 0.6rem;
 }
 .article .article-entry> h1 >a,
 .article .article-entry> h2 >a,
@@ -3393,6 +3403,12 @@ div.gallery.stretch>p img {
 .article .article-entry> h1:before,
 .article .article-entry> h2:before {
   margin-top: -32px;
+}
+.article .article-entry> h3,
+.article .article-entry> h4,
+.article .article-entry> h5,
+.article .article-entry> h6 {
+  margin-bottom: 0.6rem;
 }
 .article .article-entry> h3:before {
   margin-top: -56px;
@@ -5988,135 +6004,6 @@ ul.list-v >li>a.active {
 .l_side .toc-wrapper:empty {
   display: none;
 }
-html {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
-}
-p,
-input,
-textarea,
-pre > span {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/text.png"), text;
-}
-a {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
-}
-a p {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
-}
-a:not([href]) {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
-}
-a:not([href]) p {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
-}
-button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
-}
-button[disabled],
-html input[disabled] {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
-}
-scrollbar::-webkit-scrollbar-thumb {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
-}
-.article kbd:hover {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
-}
-.article .widget {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
-}
-.cover-wrapper .cover .scroll-down {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
-}
-.l_body .post section.meta .new-meta-box .new-meta-item .notlink {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
-}
-#u-search .modal .modal-header .btn-close {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
-}
-#u-search .modal .modal-footer .nav {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
-}
-span.btn >a:not([href]):hover {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/circle.png"), not-allowed;
-}
-span.btn a:not([href]) {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
-}
-article .checkbox input {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
-}
-div.dropmenu {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
-}
-details summary {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
-}
-details summary p {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
-}
-div.tabs ul.nav-tabs li.tab a {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
-}
-div.tabs ul.nav-tabs li.tab.active a {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
-}
-.btn-copy {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
-}
-.fancybox-container .fancybox-stage {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/zoom-out.png"), zoom-out;
-}
-.fancybox a {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/zoom-in.png"), zoom-in;
-}
-.l_main #comments #valine_container .vcards .vhead span.vnick {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
-}
-.fancybox-can-zoomIn .fancybox-content {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/zoom-in.png"), zoom-in;
-}
-.fancybox-can-pan .fancybox-content,
-.fancybox-can-swipe .fancybox-content {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/openhand.png"), grab;
-}
-.waves-effect,
-a.result.search-result-fix {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
-}
-.v[data-class=v] a,
-.v[data-class=v] .vbtn,
-.v[data-class=v] .vicon,
-.v[data-class=v] .vcards .vcard .vhead .vnick,
-.v[data-class=v] .vcards .vcard .vh .vmeta .vat,
-.v[data-class=v] .vwrap .vemojis i,
-.v[data-class=v] .vcards .vcard .vcontent.expand,
-.aplayer .aplayer-pic,
-.aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon,
-.aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap,
-.aplayer .aplayer-list ol li,
-.aplayer .aplayer-list ol li .aplayer-list-author,
-.aplayer .aplayer-list ol li .aplayer-list-index,
-.fancybox-button,
-.waves-button,
-.waves-button-input,
-.waves-button:hover,
-.waves-button:visited {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer !important;
-}
-.aplayer .aplayer-info .aplayer-music {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default !important;
-}
-.fancybox-button[disabled],
-.fancybox-button[disabled]:hover {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/circle.png"), not-allowed !important;
-}
-.fix-cursor-pointer {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer !important;
-}
 @media screen and (max-width: 560px) {
   .fixlicense {
     display: none;
@@ -6177,7 +6064,7 @@ textarea#veditor::-webkit-scrollbar-thumb:hover {
 .bb_spoiler a,
 a .bb_spoiler,
 .bb_spoiler a.new {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
+  cursor: $pointer, pointer;
   border-bottom: 1px solid;
   border-color: #666;
   background-color: #fff;
@@ -6206,12 +6093,12 @@ a .bb_spoiler,
 }
 .article a:not([class]) {
   text-decoration: none;
-  border-bottom: none;
 }
 code:not([class]) {
   padding: 4px 4px 3px 4px;
   vertical-align: middle;
   background: #e8f9ff;
+  color: unset !important;
 }
 .l_header {
   max-width: 65vw;
@@ -6225,6 +6112,14 @@ code:not([class]) {
     border-radius: 0;
     max-width: 100%;
   }
+}
+.article h1,
+.article h2 {
+  font-weight: 700;
+  background: linear-gradient(to bottom, transparent 60%, rgba(189,202,219,0.3) 0) no-repeat;
+  display: initial;
+  width: auto;
+  border-bottom: none;
 }
 .gist .blob-num {
   border: none;
@@ -7000,4 +6895,262 @@ hr {
   line-height: 22px;
   font-size: 14px;
   color: #666;
+}
+html {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
+}
+p,
+input,
+textarea,
+pre > span {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/text.png"), text;
+}
+a {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
+}
+a p {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
+}
+a:not([href]) {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
+}
+a:not([href]) p {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
+}
+button[disabled],
+html input[disabled] {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
+}
+scrollbar::-webkit-scrollbar-thumb {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
+}
+.article kbd:hover {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
+}
+.article .widget {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
+}
+.cover-wrapper .cover .scroll-down {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
+}
+.l_body .post section.meta .new-meta-box .new-meta-item .notlink {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
+}
+#u-search .modal .modal-header .btn-close {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
+}
+#u-search .modal .modal-footer .nav {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
+}
+span.btn >a:not([href]):hover {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/circle.png"), not-allowed;
+}
+span.btn a:not([href]) {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
+}
+article .checkbox input {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
+}
+div.dropmenu {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
+}
+details summary {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
+}
+details summary p {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
+}
+div.tabs ul.nav-tabs li.tab a {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
+}
+div.tabs ul.nav-tabs li.tab.active a {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
+}
+.btn-copy {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
+}
+.fancybox-container .fancybox-stage {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/zoom-out.png"), zoom-out;
+}
+.fancybox a {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/zoom-in.png"), zoom-in;
+}
+.l_main #comments #valine_container .vcards .vhead span.vnick {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
+}
+.fancybox-can-zoomIn .fancybox-content {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/zoom-in.png"), zoom-in;
+}
+.fancybox-can-pan .fancybox-content,
+.fancybox-can-swipe .fancybox-content {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/openhand.png"), grab;
+}
+.waves-effect,
+a.result.search-result-fix {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
+}
+.v[data-class=v] a,
+.v[data-class=v] .vbtn,
+.v[data-class=v] .vicon,
+.v[data-class=v] .vcards .vcard .vhead .vnick,
+.v[data-class=v] .vcards .vcard .vh .vmeta .vat,
+.v[data-class=v] .vwrap .vemojis i,
+.v[data-class=v] .vcards .vcard .vcontent.expand,
+.aplayer .aplayer-pic,
+.aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon,
+.aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap,
+.aplayer .aplayer-list ol li,
+.aplayer .aplayer-list ol li .aplayer-list-author,
+.aplayer .aplayer-list ol li .aplayer-list-index,
+.fancybox-button,
+.waves-button,
+.waves-button-input,
+.waves-button:hover,
+.waves-button:visited {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer !important;
+}
+.aplayer .aplayer-info .aplayer-music {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default !important;
+}
+.fancybox-button[disabled],
+.fancybox-button[disabled]:hover {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/circle.png"), not-allowed !important;
+}
+.fix-cursor-pointer {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer !important;
+}
+html {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
+}
+p,
+input,
+textarea,
+pre > span {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/text.png"), text;
+}
+a {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
+}
+a p {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
+}
+a:not([href]) {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
+}
+a:not([href]) p {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
+}
+button[disabled],
+html input[disabled] {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
+}
+scrollbar::-webkit-scrollbar-thumb {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
+}
+.article kbd:hover {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
+}
+.article .widget {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
+}
+.cover-wrapper .cover .scroll-down {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
+}
+.l_body .post section.meta .new-meta-box .new-meta-item .notlink {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
+}
+#u-search .modal .modal-header .btn-close {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
+}
+#u-search .modal .modal-footer .nav {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
+}
+span.btn >a:not([href]):hover {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/circle.png"), not-allowed;
+}
+span.btn a:not([href]) {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
+}
+article .checkbox input {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
+}
+div.dropmenu {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
+}
+details summary {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
+}
+details summary p {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
+}
+div.tabs ul.nav-tabs li.tab a {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
+}
+div.tabs ul.nav-tabs li.tab.active a {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
+}
+.btn-copy {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
+}
+.fancybox-container .fancybox-stage {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/zoom-out.png"), zoom-out;
+}
+.fancybox a {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/zoom-in.png"), zoom-in;
+}
+.l_main #comments #valine_container .vcards .vhead span.vnick {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
+}
+.fancybox-can-zoomIn .fancybox-content {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/zoom-in.png"), zoom-in;
+}
+.fancybox-can-pan .fancybox-content,
+.fancybox-can-swipe .fancybox-content {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/openhand.png"), grab;
+}
+.waves-effect,
+a.result.search-result-fix {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
+}
+.v[data-class=v] a,
+.v[data-class=v] .vbtn,
+.v[data-class=v] .vicon,
+.v[data-class=v] .vcards .vcard .vhead .vnick,
+.v[data-class=v] .vcards .vcard .vh .vmeta .vat,
+.v[data-class=v] .vwrap .vemojis i,
+.v[data-class=v] .vcards .vcard .vcontent.expand,
+.aplayer .aplayer-pic,
+.aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon,
+.aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap,
+.aplayer .aplayer-list ol li,
+.aplayer .aplayer-list ol li .aplayer-list-author,
+.aplayer .aplayer-list ol li .aplayer-list-index,
+.fancybox-button,
+.waves-button,
+.waves-button-input,
+.waves-button:hover,
+.waves-button:visited {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer !important;
+}
+.aplayer .aplayer-info .aplayer-music {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default !important;
+}
+.fancybox-button[disabled],
+.fancybox-button[disabled]:hover {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/circle.png"), not-allowed !important;
+}
+.fix-cursor-pointer {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer !important;
 }
