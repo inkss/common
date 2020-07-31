@@ -391,7 +391,6 @@ var customSearch;
 			scrolltoElement('.l_body');
 		});
 
-
 		try {
 			document.addEventListener('pjax:complete', function () {
 				if(window.location.hash){

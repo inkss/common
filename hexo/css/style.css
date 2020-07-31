@@ -1609,6 +1609,12 @@ div.timenode .body {
   background: #f6f6f6;
   display: inline-block;
 }
+div.timenode .body p:first-child {
+  margin-top: 0;
+}
+div.timenode .body p:last-child {
+  margin-bottom: 0;
+}
 div.timenode:hover .meta {
   color: #444;
 }
@@ -1734,11 +1740,10 @@ pre {
   width: 100%;
   margin: 0.4rem 0;
   display: block;
-  background: #f4fafe;
+  background: #f6f6f6;
   font-size: 0.8125rem;
   font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace, courier, sans-serif;
   border-radius: 4px;
-  border: 1px solid transparent;
   line-height: 1.5;
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
@@ -1746,18 +1751,23 @@ pre {
   -moz-transition: all 0.28s ease;
   -webkit-transition: all 0.28s ease;
   -o-transition: all 0.28s ease;
-  filter: grayscale(100%);
 }
 .highlight:hover {
-  border-color: #c5e5fa;
-  filter: grayscale(0%);
+  background: #f4fafe;
+}
+.highlight:hover figcaption {
+  transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  background: #ddf0fc;
 }
 .highlight figcaption {
   font-size: 12px;
   position: sticky;
   left: 0;
   padding: 4px 8px 4px 8px;
-  background-color: #ddf0fc;
+  background: #eaeaea;
   border-top-left-radius: calc(4px - 1px);
   border-top-right-radius: calc(4px - 1px);
 }
@@ -2106,7 +2116,7 @@ pre {
   user-select: none;
   -webkit-appearance: none;
   font-family: Menlo, SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace, courier, sans-serif;
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: bold;
   padding: 4px 8px;
   color: rgba(68,68,68,0.65);
@@ -2114,8 +2124,8 @@ pre {
   border-radius: 3px;
   box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 1px;
+  right: 1px;
   opacity: 0;
   transition: all 0.28s ease;
   -moz-transition: all 0.28s ease;
@@ -2435,12 +2445,77 @@ div.gallery.stretch>p img {
 .article mjx-container + br {
   display: none;
 }
+#nprogress {
+  pointer-events: none;
+}
+#nprogress .bar {
+  background: #2196f3;
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#nprogress .peg {
+  display: block;
+  position: absolute;
+  right: 0px;
+  width: 100px;
+  height: 100%;
+  opacity: 1;
+  -webkit-transform: rotate(3deg) translate(0px, -4px);
+  -ms-transform: rotate(3deg) translate(0px, -4px);
+  transform: rotate(3deg) translate(0px, -4px);
+}
+#nprogress .spinner {
+  display: block;
+  position: fixed;
+  z-index: 999999;
+  top: 15px;
+  right: 15px;
+}
+#nprogress .spinner-icon {
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+  border: solid 2px transparent;
+  border-top-color: #29d;
+  border-left-color: #29d;
+  border-radius: 50%;
+  -webkit-animation: nprogress-spinner 400ms linear infinite;
+  animation: nprogress-spinner 400ms linear infinite;
+}
+.nprogress-custom-parent {
+  overflow: hidden;
+  position: relative;
+}
+.nprogress-custom-parent #nprogress .spinner,
+.nprogress-custom-parent #nprogress .bar {
+  position: absolute;
+}
+@-webkit-keyframes nprogress-spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
 #loading-bar-wrapper {
   position: fixed;
-  width: 100%;
-  top: 0;
-  height: 2px;
+  width: 100px;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 8px;
+  border-radius: 8px;
   z-index: 99999;
+  background: transparent;
+}
+#loading-bar-wrapper.nprogress-custom-parent {
+  background: #fff;
+  box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
 }
 .loading-circle {
   display: none;
@@ -2510,6 +2585,38 @@ div.gallery.stretch>p img {
   100% {
     -webkit-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes nprogress-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes nprogress-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes nprogress-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes nprogress-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
     transform: rotate(360deg);
   }
 }
@@ -4458,9 +4565,6 @@ div.hoverbox:hover >div.target {
 }
 .white-box {
   background: #fff;
-}
-.reveal {
-  visibility: hidden;
 }
 .l_header {
   position: fixed;
