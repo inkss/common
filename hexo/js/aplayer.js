@@ -1,6 +1,6 @@
 // 检查 Aplayer 对象状态
 function checkAPlayer() {
-	if (APlayerController.aplayer == undefined) {
+	if (APlayerController.player == undefined) {
 		setAPlayerObject();
 	} else {
 		if (APlayerController.observer == undefined) {
@@ -15,7 +15,7 @@ function setAPlayerObject() {
 	document.querySelectorAll('meting-js').forEach((item, index) => {
 		if (item.meta.id == APlayerController.id) {
 			if (document.querySelectorAll('meting-js')[index].aplayer != undefined) {
-				APlayerController.aplayer = document.querySelectorAll('meting-js')[index].aplayer;
+ 				APlayerController.player = document.querySelectorAll('meting-js')[index].aplayer;
 				setAPlayerObserver();
 			}
 		}
@@ -25,37 +25,27 @@ function setAPlayerObject() {
 // 事件监听
 function setAPlayerObserver() {
 	try {
-		APlayerController.aplayer.on('play', function (e) {
+		APlayerController.player.on('play', function (e) {
 			updateAPlayerControllerStatus();
 			var index = document.querySelector('meting-js').aplayer.list.index;
 			var title = document.querySelector('meting-js').aplayer.list.audios[index].title;
 			var artist = document.querySelector('meting-js').aplayer.list.audios[index].artist;
-			$.message({
-				title: '音乐通知',
-				message: '正在播放：' + title + ' - ' + artist,
-				type: 'success'
-			});
+			$.message({title: '音乐通知',message: '正在播放：' + title + ' - ' + artist,type: 'success'});
 		});
-		APlayerController.aplayer.on('pause', function (e) {
+		APlayerController.player.on('pause', function (e) {
 			updateAPlayerControllerStatus();
 			var index = document.querySelector('meting-js').aplayer.list.index;
 			var title = document.querySelector('meting-js').aplayer.list.audios[index].title;
 			var artist = document.querySelector('meting-js').aplayer.list.audios[index].artist;
-			$.message({
-				title: '音乐通知',
-				message: '暂停播放：' + title + ' - ' + artist,
-				type: 'success'
-			});
+			$.message({title: '音乐通知',message: '暂停播放：' + title + ' - ' + artist,type: 'success'});
 		});
-		APlayerController.aplayer.on('error', function (e) { // 音乐加载失败
-			$.message({
-				title: "音乐通知",
-				message: "音乐加载失败~ 潜在网络问题",
-				type: 'warning'
-			});
-		});
-		APlayerController.aplayer.on('volumechange', function (e) {
+        APlayerController.player.on('volumechange', function (e) {
 			onUpdateAPlayerVolume();
+		});
+		APlayerController.player.on('error', function (e) { // 音乐加载失败
+			var index = document.querySelector('meting-js').aplayer.list.index;
+			var title = document.querySelector('meting-js').aplayer.list.audios[index].title;
+			$.message({title: "音乐通知",message: "歌曲：" + title + "加载失败~",type: 'warning'});
 		});
 
 		// 监听音量手势
@@ -66,7 +56,7 @@ function setAPlayerObserver() {
 			let percentage = ((e.clientX || e.changedTouches[0].clientX) - APlayerController.volumeBar.getBoundingClientRect().left) / APlayerController.volumeBar.clientWidth;
 			percentage = Math.max(percentage, 0);
 			percentage = Math.min(percentage, 1);
-			APlayerController.aplayer.volume(percentage);
+			APlayerController.player.volume(percentage);
 		}
 		const thumbMove = (e) => {
 			updateAPlayerVolume(e);
@@ -98,7 +88,7 @@ function setAPlayerObserver() {
 // 更新控制器状态
 function updateAPlayerControllerStatus() {
 	try {
-		if (APlayerController.aplayer.audio.paused) {
+		if (APlayerController.player.audio.paused) {
 			document.getElementsByClassName('nav toggle')[0].children[0].classList.add("fa-play");
 			document.getElementsByClassName('nav toggle')[0].children[0].classList.remove("fa-pause");
 		} else {
@@ -112,7 +102,7 @@ function updateAPlayerControllerStatus() {
 
 function onUpdateAPlayerVolume() {
 	try {
-		APlayerController.volumeBar.children[0].style.width = APlayerController.aplayer.audio.volume * 100 + '%'
+		APlayerController.volumeBar.children[0].style.width = APlayerController.player.audio.volume * 100 + '%'
 	} catch (error) {
 		console.log(error);
 	}
@@ -122,7 +112,7 @@ function onUpdateAPlayerVolume() {
 function aplayerToggle() {
 	checkAPlayer();
 	try {
-		APlayerController.aplayer.toggle();
+		APlayerController.player.toggle();
 	} catch (error) {
 		console.log(error);
 	}
@@ -132,8 +122,8 @@ function aplayerToggle() {
 function aplayerBackward() {
 	checkAPlayer();
 	try {
-		APlayerController.aplayer.skipBack();
-		APlayerController.aplayer.play();
+		APlayerController.player.skipBack();
+		APlayerController.player.play();
 	} catch (error) {
 		console.log(error);
 	}
@@ -143,8 +133,8 @@ function aplayerBackward() {
 function aplayerForward() {
 	checkAPlayer();
 	try {
-		APlayerController.aplayer.skipForward();
-		APlayerController.aplayer.play();
+		APlayerController.player.skipForward();
+		APlayerController.player.play();
 	} catch (error) {
 		console.log(error);
 	}
@@ -154,7 +144,19 @@ function aplayerForward() {
 function aplayerVolume(percent) {
 	checkAPlayer();
 	try {
-		APlayerController.aplayer.volume(percent);
+		APlayerController.player.volume(percent);
+	} catch (error) {
+		console.log(error);
+	}
+}
+
+// 更新音乐标题
+function updateTitle() {
+	checkAPlayer();
+	try {
+		let index = APlayerController.player.list.index;
+		let obj = APlayerController.player.list.audios[index];
+		document.getElementsByClassName('nav music-title')[0].innerHTML = obj.title;
 	} catch (error) {
 		console.log(error);
 	}
@@ -166,41 +168,26 @@ function autoPlayMusic() {
 	setTimeout(function () {
 		if ($(window).width() > 500 && autoPlayMusic && APlayerController.autoPlay) {
 			let isplay = true;
-			$.message({
-				title: "音乐通知",
-				message: "即将自动播放，点击<a id='stopMusic' class='stopMusic fix-cursor-pointer'>停止播放</a>",
-				type: 'warning'
-			});
+			$.message({title: "音乐通知",message: "即将自动播放，点击<a id='stopMusic' class='stopMusic fix-cursor-pointer'>停止播放</a>",type: 'warning'});
 			setTimeout(function () {
-				if (APlayerController.aplayer == undefined) {
+				if (APlayerController.player == undefined) {
 					checkAPlayer();
 				}
 				if (isplay) {
 					aplayerToggle();
 				}
 			}, 3500);
-
 			$("#stopMusic").click(function () {
 				isplay = false;
 				$(".c-message--close").click();
 				setTimeout(() => {
-					$.message({
-						title: "音乐通知",
-						time: 999999,
-						message: "是否永久关闭音乐自动播放?  <a id='dontPlayMusic' class='stopMusic fix-cursor-pointer'><b>确认</b></a>",
-						type: 'warning'
-					});
+					$.message({title: "音乐通知",time: 999999,message: "是否永久关闭音乐自动播放?  <a id='dontPlayMusic' class='stopMusic fix-cursor-pointer'><b>确认</b></a>",type: 'warning'});
 					$("#dontPlayMusic").click(function () {
 						var expires = 7 * 24 * 60 * 60 * 1000;
 						setCookie("autoPlayMusic", 'false', expires, '/');
 						$(".c-message--close").click();
 						setTimeout(() => {
-							$.message({
-								title: '音乐通知',
-								time: 6000,
-								message: '关闭成功，未来一周内将不再提醒~',
-								type: 'success'
-							});
+							$.message({title: '音乐通知',time: 6000,message: '关闭成功，未来一周内将不再提醒~',type: 'success'});
 						}, 1000);
 					});
 				}, 1000);

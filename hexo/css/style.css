@@ -5231,14 +5231,22 @@ ul.list-v.rightmenu li.music {
   display: flex;
   justify-content: space-between;
 }
+ul.list-v.rightmenu li.navigation a.vlts-menu,
+ul.list-v.rightmenu li.music a.vlts-menu {
+  padding: 0 16px 0 8px;
+}
 ul.list-v.rightmenu li.navigation a.nav,
 ul.list-v.rightmenu li.music a.nav {
   margin: 0;
-  padding: 0 8px;
+  padding: 0;
+  border-radius: 36px;
+  overflow: hidden;
 }
 ul.list-v.rightmenu li.navigation a.nav i,
 ul.list-v.rightmenu li.music a.nav i {
   margin: 0;
+  width: 36px;
+  line-height: 36px;
 }
 ul.list-v.rightmenu li.navigation a.nav:first-child,
 ul.list-v.rightmenu li.music a.nav:first-child {
@@ -5248,24 +5256,66 @@ ul.list-v.rightmenu li.navigation a.nav:last-child,
 ul.list-v.rightmenu li.music a.nav:last-child {
   margin-right: 12px;
 }
+ul.list-v.rightmenu li.music.name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+ul.list-v.rightmenu li.music.name p.nav.music-title {
+  color: #696969;
+  font-size: 0.875rem;
+  max-width: 128px;
+  margin: 0 20px;
+  overflow: hidden;
+}
+ul.list-v.rightmenu li.music.name p.nav.music-title:hover {
+  background: none;
+}
+ul.list-v.rightmenu li.music a.nav.volume {
+  width: 100%;
+  padding: 0 8px;
+}
 ul.list-v.rightmenu li.music a.nav.volume:hover {
   background: transparent;
 }
 ul.list-v.rightmenu li.music a.nav.volume .aplayer-volume-bar {
-  margin: 8px 0;
+  margin: 4px 0 8px;
   position: relative;
   height: 8px;
-  width: 120px;
+  width: 100%;
   background: #ededed;
-  border-radius: 8px;
+  border-radius: 36px;
   overflow: hidden;
   transition: all 0.28s ease;
   -moz-transition: all 0.28s ease;
   -webkit-transition: all 0.28s ease;
   -o-transition: all 0.28s ease;
 }
+ul.list-v.rightmenu li.music a.nav.volume .aplayer-volume-bar i.left,
+ul.list-v.rightmenu li.music a.nav.volume .aplayer-volume-bar i.right {
+  color: #696969;
+  position: absolute;
+  top: 0;
+  width: 36px;
+  transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  opacity: 0;
+  transform: scale(0.5) translateY(-26px);
+}
+ul.list-v.rightmenu li.music a.nav.volume .aplayer-volume-bar i.left {
+  left: 0;
+}
+ul.list-v.rightmenu li.music a.nav.volume .aplayer-volume-bar i.right {
+  right: 0;
+}
 ul.list-v.rightmenu li.music a.nav.volume .aplayer-volume-bar:hover {
-  height: 16px;
+  height: 34px;
+}
+ul.list-v.rightmenu li.music a.nav.volume .aplayer-volume-bar:hover i {
+  opacity: 1;
+  transform: scale(1) translateY(0);
 }
 ul.list-v.rightmenu li.music a.nav.volume .aplayer-volume-bar .aplayer-volume {
   background: #2196f3;
@@ -6230,9 +6280,8 @@ textarea#veditor::-webkit-scrollbar-thumb:hover {
   max-height: 500px;
 }
 .highlight:hover .btn-copy {
-  margin-top: -28px;
   border: 1px solid #f1f1f1;
-  border-radius: 6px 6px 0 0;
+  border-radius: 6px;
 }
 .bb_spoiler,
 .bb_spoiler a,
@@ -7103,9 +7152,6 @@ pre > span {
 a {
   cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
 }
-a p {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
-}
 a:not([href]) {
   cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
 }
@@ -7122,11 +7168,11 @@ button[disabled],
 html input[disabled] {
   cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
 }
-scrollbar::-webkit-scrollbar-thumb {
+table::-webkit-scrollbar-thumb {
   cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
 }
-.article kbd:hover {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
+scrollbar::-webkit-scrollbar-thumb {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
 }
 .article .widget {
   cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
@@ -7152,13 +7198,10 @@ span.btn a:not([href]) {
 article .checkbox input {
   cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
 }
-div.dropmenu {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default;
-}
 details summary {
   cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
 }
-details summary p {
+.article a.link-card {
   cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer;
 }
 div.tabs ul.nav-tabs li.tab a {
