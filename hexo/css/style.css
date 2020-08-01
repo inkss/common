@@ -7337,6 +7337,8 @@ a.result.search-result-fix {
 .waves-button:visited {
   cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer !important;
 }
+.not-select,
+.not-select p,
 .aplayer .aplayer-info .aplayer-music {
   cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default !important;
 }
