@@ -1747,6 +1747,7 @@ pre {
   line-height: 1.5;
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
+  overflow: hidden;
   transition: all 0.28s ease;
   -moz-transition: all 0.28s ease;
   -webkit-transition: all 0.28s ease;
@@ -1761,6 +1762,9 @@ pre {
   -webkit-transition: all 0.28s ease;
   -o-transition: all 0.28s ease;
   background: #ddf0fc;
+}
+.highlight:hover .gutter {
+  background: #ddeffc;
 }
 .highlight figcaption {
   font-size: 12px;
@@ -1802,7 +1806,7 @@ pre {
   position: sticky;
   left: 0;
   z-index: 1;
-  background-color: #ddeffc;
+  background: #e9e9e9;
 }
 .highlight >table .gutter pre {
   color: rgba(68,68,68,0.65);
@@ -5222,21 +5226,51 @@ div#rightmenu-wrapper {
 ul.list-v.rightmenu {
   display: block;
 }
-ul.list-v.rightmenu li.navigation {
+ul.list-v.rightmenu li.navigation,
+ul.list-v.rightmenu li.music {
   display: flex;
+  justify-content: space-between;
 }
-ul.list-v.rightmenu li.navigation .nav {
+ul.list-v.rightmenu li.navigation a.nav,
+ul.list-v.rightmenu li.music a.nav {
   margin: 0;
   padding: 0 8px;
 }
-ul.list-v.rightmenu li.navigation .nav i {
+ul.list-v.rightmenu li.navigation a.nav i,
+ul.list-v.rightmenu li.music a.nav i {
   margin: 0;
 }
-ul.list-v.rightmenu li.navigation .nav:first-child {
+ul.list-v.rightmenu li.navigation a.nav:first-child,
+ul.list-v.rightmenu li.music a.nav:first-child {
   margin-left: 12px;
 }
-ul.list-v.rightmenu li.navigation .nav:last-child {
+ul.list-v.rightmenu li.navigation a.nav:last-child,
+ul.list-v.rightmenu li.music a.nav:last-child {
   margin-right: 12px;
+}
+ul.list-v.rightmenu li.music a.nav.volume:hover {
+  background: transparent;
+}
+ul.list-v.rightmenu li.music a.nav.volume .aplayer-volume-bar {
+  margin: 8px 0;
+  position: relative;
+  height: 8px;
+  width: 120px;
+  background: #ededed;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+}
+ul.list-v.rightmenu li.music a.nav.volume .aplayer-volume-bar:hover {
+  height: 16px;
+}
+ul.list-v.rightmenu li.music a.nav.volume .aplayer-volume-bar .aplayer-volume {
+  background: #2196f3;
+  height: 100%;
+  width: 100%;
 }
 #u-search {
   display: none;
@@ -7185,4 +7219,7 @@ a.result.search-result-fix {
 }
 .fix-cursor-pointer {
   cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer !important;
+}
+.fix-cursor-default {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default !important;
 }
