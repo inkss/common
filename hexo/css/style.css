@@ -6396,6 +6396,19 @@ code:not([class]) {
 .fixIconColor:hover {
   color: #2196f3 !important;
 }
+kbd {
+  cursor: default;
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  line-height: 10px;
+  color: #444d56;
+  vertical-align: middle;
+  background-color: #fafbfc;
+  border: 1px solid #d1d5da;
+  border-radius: 6px;
+  box-shadow: inset 0 -1px 0 #d1d5da;
+}
 .text-animate {
   padding-left: 20px;
   font-size: 12px;
@@ -7337,6 +7350,7 @@ a.result.search-result-fix {
 .waves-button:visited {
   cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer !important;
 }
+kbd,
 .not-select,
 .not-select p,
 .aplayer .aplayer-info .aplayer-music {
