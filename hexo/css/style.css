@@ -2072,36 +2072,6 @@ pre {
 .highlight.yaml .line .attr {
   color: #e24f5a;
 }
-.alert {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 999;
-  text-align: center;
-  padding: 30px 36px 29px 36px;
-  border-radius: 8px;
-  box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
-  font-weight: bold;
-  font-size: 1.125rem;
-}
-.alert.alert-success {
-  color: #247830;
-  background: #daf4de;
-}
-.alert.alert-info {
-  color: #028baf;
-  background-color: #e4f9ff;
-}
-.alert.alert-warning {
-  color: #c48700;
-  background-color: #fffdf7;
-}
-.alert.alert-danger {
-  color: #ef0b01;
-  background-color: #fff;
-}
 @media screen and (max-width: 500px) {
   .l_header .list-v .aplayer,
   .l_header .list-v .aplayer-pic {
@@ -2152,170 +2122,6 @@ pre {
 }
 .article pre:hover .btn-copy {
   opacity: 1;
-}
-.darkmode-toggle {
-  z-index: 100000;
-}
-.darkmode-background {
-  z-index: -9999999 !important;
-}
-.darkmode--activated img {
-  filter: brightness(30%);
-}
-.darkmode--activated .pdf {
-  filter: brightness(30%);
-}
-.darkmode--activated .MiniValine .vpage .more {
-  background: #21232f;
-}
-.darkmode--activated .MiniValine .vlist .vcard .vcomment-body .text-wrapper .vcomment.expand:before {
-  background: linear-gradient(180deg, rgba(246,246,246,0), rgba(0,0,0,0.9));
-}
-.darkmode--activated .MiniValine .vlist .vcard .vcomment-body .text-wrapper .vcomment.expand:after {
-  background: rgba(0,0,0,0.9);
-}
-.darkmode--activated .MiniValine .vlist .vcard .vcomment-body .text-wrapper .vcomment pre {
-  background: #282c34;
-  border: 1px solid #282c34;
-}
-.darkmode--activated .MiniValine .vinputs-area .vextra-area .vsmile-icons {
-  background: transparent;
-}
-.darkmode--activated .MiniValine .vlist .vcard .vcomment-body .vhead {
-  filter: brightness(85%);
-}
-.darkmode--activated .container {
-  background: #21232f;
-}
-.darkmode--activated .blur {
-  background: #21232f !important;
-}
-.darkmode--activated .loading-bar-wrapper {
-  background: #21232f;
-}
-.darkmode--activated .nav-main .u-search-input {
-  background: #87ceeb !important;
-}
-.darkmode--activated .list-v {
-  background: #21232f;
-}
-.darkmode--activated .vsubmit {
-  background: #21232f;
-}
-.darkmode--activated .l_header ul>li>a:hover {
-  background: rgba(33,150,243,0.2);
-}
-.darkmode--activated #archive-page .archive .archive-post a:hover {
-  background: rgba(33,150,243,0.2);
-}
-.darkmode--activated .l_main .article .prev-next>a {
-  background: #21232f;
-}
-.darkmode--activated .article blockquote {
-  background: #21232f;
-}
-.darkmode--activated table tr {
-  background-color: rgba(205,202,220,0);
-}
-.darkmode--activated table th {
-  background: rgba(3,8,36,0.56);
-}
-.darkmode--activated table tr:hover {
-  background: rgba(33,150,243,0.2);
-}
-.darkmode--activated .highlight>table {
-  background: #282c34;
-}
-.darkmode--activated .gutter {
-  background: #282c34 !important;
-  background-color: #282c34 !important;
-}
-.darkmode--activated .highlight figcaption {
-  background-color: #21252b;
-}
-.darkmode--activated .highlight {
-  border: 1px solid #21252b !important;
-  background: #282c34;
-}
-.darkmode--activated .highlight table tr:hover {
-  background: #282c34;
-}
-.darkmode--activated details>summary {
-  background: #282c34;
-}
-.darkmode--activated details {
-  border: 1px solid #282c34;
-  background: #282c34;
-}
-.darkmode--activated .note {
-  background: #282c34 !important;
-}
-.darkmode--activated .nav-tabs {
-  background: #282c34 !important;
-}
-.darkmode--activated .tabs {
-  background: #282c34 !important;
-}
-.darkmode--activated .btns a {
-  background: #282c34 !important;
-}
-.darkmode--activated .tab.active a {
-  background: #87ceeb !important;
-}
-.darkmode--activated .widget>.content ul.entry a:hover,
-.darkmode--activated .widget>.content ul.popular-posts a:hover {
-  background: rgba(33,150,243,0.2);
-}
-.darkmode--activated #u-search .modal {
-  background: #282c34 !important;
-}
-.darkmode--activated #u-search .modal-header {
-  background: #282c34 !important;
-}
-.darkmode--activated #u-search .modal-body {
-  background: #282c34 !important;
-}
-.darkmode--activated #u-search .modal-body .modal-results .result:hover {
-  background: rgba(33,150,243,0.2) !important;
-}
-.darkmode--activated .aplayer-info {
-  background: #282c34 !important;
-}
-.darkmode--activated .aplayer .aplayer-lrc:before {
-  background: linear-gradient(180deg, #282c34 0, rgba(255,255,255,0));
-}
-.darkmode--activated .aplayer .aplayer-lrc:after {
-  background: linear-gradient(180deg, rgba(0,0,0,0) 0, rgba(33,33,33,0.8));
-}
-.darkmode--activated .aplayer-pic {
-  filter: brightness(30%);
-}
-.darkmode--activated .l_header ul.nav-list-h>li>a:hover {
-  background: #282c34 !important;
-}
-.darkmode--activated .white-box {
-  background: #282c34 !important;
-}
-.darkmode--activated .widget {
-  background: #282c34 !important;
-}
-.darkmode--activated .article code:not([class]) {
-  background: #221f29 !important;
-}
-.darkmode--activated .cover-wrapper .cover .cover-body .menu.dock .list-h a:hover,
-.darkmode--activated .cover-wrapper .cover .cover-body .menu.featured .list-h a:hover,
-.darkmode--activated .cover-wrapper .cover .cover-body .menu.focus .list-h a:hover {
-  background: #282c34 !important;
-}
-.darkmode--activated .friend-card {
-  background: #172233 !important;
-}
-.darkmode--activated .highlight pre .line,
-.darkmode--activated .highlight pre .params {
-  color: rgba(158,142,142,0.9);
-}
-.darkmode--activated div.timenode .body {
-  background: #21232f !important;
 }
 div.gallery {
   margin: 0.4rem 0;
@@ -2675,247 +2481,6 @@ div.gallery.stretch>p img {
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
-}
-.l_main #comments {
-  position: relative;
-}
-.l_main #comments a {
-  border-bottom: none;
-}
-.l_main #comments #valine_container >i {
-  display: block;
-  margin: 16px auto;
-}
-.l_main #comments #valine_container img {
-  display: inline;
-}
-.l_main #comments #valine_container .vwrap {
-  border-radius: 8px;
-  border-style: dashed;
-  border: 1px dashed rgba(68,68,68,0.3);
-  transition: all 0.28s ease;
-  -moz-transition: all 0.28s ease;
-  -webkit-transition: all 0.28s ease;
-  -o-transition: all 0.28s ease;
-}
-.l_main #comments #valine_container .vwrap:hover {
-  border: 1px dashed #2196f3;
-}
-.l_main #comments #valine_container .vwrap .cancel-reply {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-.l_main #comments #valine_container .vwrap .vheader .vinput {
-  border-radius: 0;
-  border-bottom: 1px dashed rgba(68,68,68,0.3);
-}
-.l_main #comments #valine_container .vwrap .vheader .vinput:hover {
-  border-bottom: 1px dashed #2196f3;
-}
-.l_main #comments #valine_container .vwrap .vheader .vinput:focus {
-  border-bottom: 1px solid #2196f3;
-}
-.l_main #comments #valine_container .vwrap .vedit .vicon {
-  height: 22px;
-}
-.l_main #comments #valine_container .vwrap .vemojis,
-.l_main #comments #valine_container .vwrap .vpreview {
-  background: #f6f6f6;
-  border-radius: 4px;
-  padding: 8px;
-}
-.l_main #comments #valine_container .vwrap .vemojis::-webkit-scrollbar,
-.l_main #comments #valine_container .vwrap .vpreview::-webkit-scrollbar {
-  height: 4px;
-  width: 4px;
-}
-.l_main #comments #valine_container .vwrap .vemojis::-webkit-scrollbar-track-piece,
-.l_main #comments #valine_container .vwrap .vpreview::-webkit-scrollbar-track-piece {
-  background: transparent;
-}
-.l_main #comments #valine_container .vwrap .vemojis::-webkit-scrollbar-thumb,
-.l_main #comments #valine_container .vwrap .vpreview::-webkit-scrollbar-thumb {
-  background: rgba(118,118,118,0.4);
-  cursor: pointer;
-  border-radius: 2px;
-}
-.l_main #comments #valine_container .vwrap .vemojis::-webkit-scrollbar-thumb:hover,
-.l_main #comments #valine_container .vwrap .vpreview::-webkit-scrollbar-thumb:hover {
-  background: #767676;
-}
-.l_main #comments #valine_container .vwrap .vemojis .vemoji,
-.l_main #comments #valine_container .vwrap .vpreview .vemoji {
-  max-height: 22px;
-  max-width: 100px;
-}
-.l_main #comments #valine_container .vwrap .vemojis i,
-.l_main #comments #valine_container .vwrap .vpreview i {
-  width: auto;
-  padding: 8px;
-  border-radius: 4px;
-  transition: box-shadow 0.2s ease-out, background 0.2s ease-out;
-}
-.l_main #comments #valine_container .vwrap .vemojis i:hover,
-.l_main #comments #valine_container .vwrap .vpreview i:hover {
-  background: #fbfbfb;
-  box-shadow: 1px 1px 2px rgba(0,0,0,0.1), -1px -1px 2px rgba(255,255,255,0.5), inset 8px 8px 16px rgba(0,0,0,0.05), inset -8px -8px 16px rgba(255,255,255,0.4);
-}
-.l_main #comments #valine_container .vwrap .vemojis i:active,
-.l_main #comments #valine_container .vwrap .vpreview i:active {
-  background: #f1f1f1;
-  box-shadow: 0px 0px 0px rgba(0,0,0,0.1), 0px 0px 0px rgba(255,255,255,0.8), inset 2px 2px 4px rgba(0,0,0,0.1), inset -2px -2px 4px #fff, inset -8px -8px 16px rgba(255,255,255,0.4);
-}
-.l_main #comments #valine_container .vwrap .vedit .vctrl span {
-  padding: 0;
-  margin: 10px;
-}
-.l_main #comments #valine_container .vwrap .vedit span {
-  fill: #555;
-}
-.l_main #comments #valine_container .vwrap .vedit span.actived {
-  fill: #2196f3;
-}
-.l_main #comments #valine_container .vcount {
-  color: #555;
-  font-size: 0.875rem;
-  padding: 0;
-  font-weight: inherit;
-}
-.l_main #comments #valine_container .vcount .vnum {
-  color: #555;
-  font-size: 1.375rem;
-}
-.l_main #comments #valine_container button {
-  border: none;
-  padding: 4px 2rem;
-  border-radius: 4px;
-  background: #f1f1f1;
-  color: #444;
-  line-height: 2;
-  font-size: 14px;
-  transition: all 0.28s ease;
-  -moz-transition: all 0.28s ease;
-  -webkit-transition: all 0.28s ease;
-  -o-transition: all 0.28s ease;
-}
-.l_main #comments #valine_container button:hover {
-  color: #ff5722;
-  background: #ffeee8;
-}
-.l_main #comments #valine_container button.vmore {
-  width: 100%;
-  padding: 8px 2rem;
-}
-.l_main #comments #valine_container .vcards .vquote {
-  border-left: none;
-}
-.l_main #comments #valine_container .vcards .vh {
-  border-bottom: 1px dashed rgba(68,68,68,0.1);
-}
-.l_main #comments #valine_container .vcards .vimg {
-  border: 1px solid #fff;
-  padding: 0;
-  background: #f6f6f6;
-}
-.l_main #comments #valine_container .vcards .vcontent.expand:before {
-  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(246,246,246,0.9));
-}
-.l_main #comments #valine_container .vcards .vcontent.expand:after {
-  background: rgba(246,246,246,0.9);
-  color: #444;
-}
-.l_main #comments #valine_container .vcards .vhead span.vnick {
-  color: #6e6e6e;
-  cursor: default;
-}
-.l_main #comments #valine_container .vcards .vhead a.vnick {
-  color: #ff9800;
-  font-weight: bold;
-}
-.l_main #comments #valine_container .vcards .vhead a.vnick:hover {
-  color: #ff5722;
-}
-.l_main #comments #valine_container .vcards .vhead .vsys {
-  margin: 2px;
-  padding: 1px 8px;
-  background-color: #f6f6f6;
-}
-.l_main #comments #valine_container .vcards .vmeta .vat {
-  font-weight: bold;
-  color: #2196f3;
-  transition: all 0.28s ease;
-  -moz-transition: all 0.28s ease;
-  -webkit-transition: all 0.28s ease;
-  -o-transition: all 0.28s ease;
-}
-.l_main #comments #valine_container .vcards .vmeta .vat:hover {
-  color: #ff5722;
-  text-decoration: underline;
-}
-.l_main #comments #valine_container .vcards .vcontent blockquote {
-  padding-top: 0.4rem;
-  padding-bottom: 0.4rem;
-  background: #e8f4fd;
-  border-left: 4px solid #2196f3;
-  border-radius: 4px;
-  transition: all 0.28s ease;
-  -moz-transition: all 0.28s ease;
-  -webkit-transition: all 0.28s ease;
-  -o-transition: all 0.28s ease;
-}
-.l_main #comments #valine_container .vcards .vcontent code {
-  color: #555;
-  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace, courier, sans-serif;
-}
-.l_main #comments #valine_container .vcards .vcontent pre {
-  background: #f4fafe;
-}
-.l_main #comments #valine_container .vcards .vcontent pre code {
-  border: none;
-}
-.l_main #comments #valine_container .vcards .vcontent a {
-  color: #2196f3;
-  line-height: inherit;
-  transition: all 0.28s ease;
-  -moz-transition: all 0.28s ease;
-  -webkit-transition: all 0.28s ease;
-  -o-transition: all 0.28s ease;
-}
-.l_main #comments #valine_container .vcards .vcontent a:hover {
-  color: #ff5722;
-  text-decoration: underline;
-}
-.l_main #comments #valine_container .vcards .vcontent p {
-  color: #555;
-  margin-top: 0.4rem;
-  margin-bottom: 0.4rem;
-  line-height: inherit;
-}
-.l_main #comments #valine_container .vcards .vcontent .vemoji {
-  max-height: 24px;
-  border-radius: 0;
-  margin-top: -10px;
-  max-width: 100px;
-}
-.l_main #comments #valine_container .vempty {
-  color: rgba(68,68,68,0.65);
-}
-.l_main #comments #valine_container .vpower,
-.l_main #comments #valine_container .vpower a {
-  font-size: 0.75rem;
-}
-.l_main #comments #valine_container .vpower a {
-  color: #555;
-}
-.l_main #comments #valine_container .vpower a:hover {
-  text-decoration: underline;
-  color: #ff5722;
-}
-.l_main #comments #valine_container .vinput {
-  color: #444;
-}
-.l_main #comments #valine_container p {
-  color: #444;
 }
 #archive-page {
   margin-bottom: 32px;
@@ -6450,6 +6015,9 @@ kbd {
     -webkit-transform: translateX(-100%);
   }
 }
+.cover-wrapper .cover .cover-body .logo {
+  max-height: 110px;
+}
 @-moz-keyframes wordsLoop {
   0% {
     transform: translateX(0px);
@@ -7358,7 +6926,8 @@ kbd,
 .not-select,
 .not-select p,
 .MiniValine *,
-.aplayer .aplayer-info .aplayer-music {
+.aplayer .aplayer-info .aplayer-music,
+.gt-container a.is--active {
   cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png"), default !important;
 }
 .tag > p,
@@ -7392,11 +6961,19 @@ kbd,
 .MiniValine .vlist .vcard .vcomment-body .vhead .vname,
 .MiniValine .vinputs-area .btn-wrap .vfunction-btn svg,
 .MiniValine .vinputs-area .vextra-area .vsmile-icons img,
-.MiniValine .vlist .vcard .vcomment-body .text-wrapper .vcomment a {
+.MiniValine .vlist .vcard .vcomment-body .text-wrapper .vcomment a,
+.gt-container .gt-btn,
+.gt-container .gt-user-inner,
+.gt-container .gt-avatar-github,
+.gt-container .gt-popup .gt-action,
+.gt-container .gt-comment-like:hover,
+.gt-container .gt-comment-edit:hover,
+.gt-container .gt-comment-reply:hover {
   cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png"), pointer !important;
 }
 .fancybox-button[disabled],
-.fancybox-button[disabled]:hover {
+.fancybox-button[disabled]:hover,
+.gt-container .gt-btn.is--disable {
   cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/circle.png"), not-allowed !important;
 }
 .fix-cursor-pointer {
