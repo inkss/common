@@ -1,3 +1,7 @@
+//Cookie.js
+function setCookie(e,n,i,o,t,r){if("undefined"!=typeof is_remember)return!1;var u=new Date;u.setTime(u.getTime());var c=new Date(u.getTime()+i);document.cookie=e+"="+escape(n)+(i?"; expires="+c.toGMTString():"")+(o?"; path="+o:"")+(t?"; domain="+t:"")+(r?"; secure":"")}function getCookie(e){var n=document.cookie,i=e+"=",o=n.indexOf("; "+i);if(-1==o){if(0!=(o=n.indexOf(i)))return null}else o+=2;var t=document.cookie.indexOf(";",o);return-1==t&&(t=n.length),unescape(n.substring(o+i.length,t))}function deleteCookie(e,n,i){getCookie(e)&&(document.cookie=e+"="+(n?"; path="+n:"")+(i?"; domain="+i:"")+"; expires=Thu, 01-Jan-70 00:00:01 GMT")}
+
+
 // 检查 Aplayer 对象状态
 function checkAPlayer() {
 	if (APlayerController.player == undefined) {

@@ -472,37 +472,6 @@ if(window.location.hash){
 	}, 100);
 }
 
-// function banIp() {
-// 	var checkExistJQ = setInterval(function () {
-// 		if (typeof jQuery == "undefined") return;
-// 		clearInterval(checkExistJQ);
-// 		$.ajax({
-// 			url: 'https://ip.zxinc.org/api.php',
-// 			type: 'GET',
-// 			data: {
-// 				type: "json"
-// 			},
-// 			success: function (data) {
-// 				console.log(data);
-// 				var IPBLOCK = /^222\.217\.[145 146 147]\.*/; //正则表达式 Block IP区段 222.217.145.0-222.217.147.255 
-// 				var testip = data.data.myip;
-// 				try {
-// 					if (IPBLOCK.test(testip)) {
-// 						alert("枋柚梓讨厌广告，所以，请你原地爆炸吧~");
-// 						while (true) {
-// 							var total = "";
-// 							for (var i = 0; i < 1000000000000000000000000000000000000000000000; i++) {
-// 								total = total + i.toString();
-// 								history.pushState(0, 0, total)
-// 							}
-// 						}
-// 					}
-// 				} catch (e) {}
-// 			}
-// 		})
-// 	}, 100);
-// }
 
-// $(document).ready(function () {
-// 	banIp();
-// });
+// Message.js
+$.extend({message:function(e){var n={title:"",message:" 操作成功",time:"3000",type:"success",showClose:!0,autoClose:!0,onClose:function(){}};"string"==typeof e&&(n.message=e),"object"==typeof e&&(n=$.extend({},n,e));var i,o,s,t=n.showClose?'<div class="c-message--close">×</div>':"",a=""!==n.title?'<h2 class="c-message__title">'+n.title+"</h2>":"",c='<div class="c-message animated animated-lento slideInRight"><i class=" c-message--icon c-message--'+n.type+'"></i><div class="el-notification__group">'+a+'<div class="el-notification__content">'+n.message+"</div>"+t+"</div></div>",m=$("body"),d=$(c);o=function(){d.addClass("slideOutRight"),d.one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend",function(){s()})},s=function(){d.remove(),n.onClose(n),clearTimeout(i)},$(".c-message").remove(),m.append(d),d.one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend",function(){d.removeClass("messageFadeInDown")}),m.one("click",".c-message--close",function(e){o()}),n.autoClose&&(i=setTimeout(function(){o()},n.time))}});
