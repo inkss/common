@@ -1,9 +1,0 @@
-! Title: Desktop Adguard filter
-! TimeUpdated: 1595815527
-
-! >>>> 有道翻译
-fanyi.youdao.com##div.fanyi:nth-child(2) > div.inside__products:last-child
-fanyi.youdao.com##div.side__nav:nth-child(5)
-fanyi.youdao.com##div.fanyi__nav:first-child > div.fanyi__nav__container > ul.fanyi__nav__list:first-child
-fanyi.youdao.com##div.fanyi__footer:nth-child(4)
-fanyi.youdao.com###transMan
