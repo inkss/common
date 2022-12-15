@@ -1,0 +1,50 @@
+/* Logo 字体 */
+@font-face {
+  font-family: 'SentyGoldenBell';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url(https://cdn.jsdelivr.net/gh/inkss/common@2.2/fonts/canva/SentyGoldenBell.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'HYMiaoHunTiJ';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url(https://cdn.jsdelivr.net/gh/inkss/common@2.2/fonts/canva/HYMiaoHunTiJ.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'HYRunYuan';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url(https://cdn.jsdelivr.net/gh/inkss/common@2.2/fonts/canva/HYRunYuan.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'MaShanZheng';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url(https://cdn.jsdelivr.net/gh/inkss/common@2.2/fonts/canva/MaShanZheng-Regular.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'SentySnowMountain';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url(https://cdn.jsdelivr.net/gh/inkss/common@2.2/fonts/canva/SentySnowMountain.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'SentyTEA';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url(https://cdn.jsdelivr.net/gh/inkss/common@2.2/fonts/canva/SentyTEA.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'SentyTriumphCalligraphy';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url(https://cdn.jsdelivr.net/gh/inkss/common@2.2/fonts/canva/SentyTriumphCalligraphy.woff2) format('woff2');
+}
