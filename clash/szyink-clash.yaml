@@ -1,0 +1,12 @@
+payload:
+  - DST-PORT,22,DIRECT
+  - SRC-PORT,22,DIRECT
+  - IP-CIDR,10.0.10.0/24,DIRECT,no-resolve
+  - DOMAIN,adc.ink,DIRECT
+  - DOMAIN-SUFFIX,adc.ink,DIRECT
+  - DOMAIN-SUFFIX,inkss.cn,DIRECT
+  - DOMAIN-SUFFIX,szyink.com,DIRECT
+  - DOMAIN,frodo.douban.com,DIRECT
+  - DOMAIN,hhanclub.top,DIRECT
+  - DOMAIN,pt.btschool.club,DIRECT
+  - DOMAIN,www.pttime.org,DIRECT
