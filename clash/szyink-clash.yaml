@@ -10,3 +10,8 @@ payload:
   - DOMAIN,hhanclub.top,DIRECT
   - DOMAIN,pt.btschool.club,DIRECT
   - DOMAIN,www.pttime.org,DIRECT
+  - DOMAIN-SUFFIX,steampowered.com,DIRECT
+  - DOMAIN-SUFFIX,steamcontent.com,DIRECT
+  - DOMAIN-SUFFIX,cdn.steampowered.com,DIRECT
+  - DOMAIN-SUFFIX,cdn.akamai.steamstatic.com,DIRECT
+  - DOMAIN-SUFFIX,media.steampowered.com,DIRECT
