@@ -1,0 +1,16 @@
+payload:
+  - DST-PORT,22
+  - SRC-PORT,22
+  - DOMAIN,adc.ink
+  - DOMAIN-SUFFIX,adc.ink
+  - DOMAIN-SUFFIX,inkss.cn
+  - DOMAIN-SUFFIX,szyink.com
+  - DOMAIN,frodo.douban.com
+  - DOMAIN,hhanclub.top
+  - DOMAIN,pt.btschool.club
+  - DOMAIN,www.pttime.org
+  - DOMAIN-SUFFIX,steampowered.com
+  - DOMAIN-SUFFIX,steamcontent.com
+  - DOMAIN-SUFFIX,cdn.steampowered.com
+  - DOMAIN-SUFFIX,cdn.akamai.steamstatic.com
+  - DOMAIN-SUFFIX,media.steampowered.com
