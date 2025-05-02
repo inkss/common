@@ -7,8 +7,4 @@ payload:
   - DOMAIN,hhanclub.top
   - DOMAIN,pt.btschool.club
   - DOMAIN,www.pttime.org
-  - DOMAIN-SUFFIX,steampowered.com
-  - DOMAIN-SUFFIX,steamcontent.com
-  - DOMAIN-SUFFIX,cdn.steampowered.com
-  - DOMAIN-SUFFIX,cdn.akamai.steamstatic.com
-  - DOMAIN-SUFFIX,media.steampowered.com
+  - DOMAIN,store.steampowered.com
