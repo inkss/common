@@ -1,6 +1,4 @@
 payload:
-  - DST-PORT,22
-  - SRC-PORT,22
   - DOMAIN,adc.ink
   - DOMAIN-SUFFIX,adc.ink
   - DOMAIN-SUFFIX,inkss.cn
