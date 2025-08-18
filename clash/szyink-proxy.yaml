@@ -9,3 +9,4 @@ payload:
   - DOMAIN-SUFFIX,bingvisualsearch.com
   - DOMAIN-SUFFIX,bingworld.com
   - DOMAIN,cdn.jsdelivr.net
+  - DOMAIN,umami.is
