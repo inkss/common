@@ -10,3 +10,4 @@ payload:
   - DOMAIN-SUFFIX,bingworld.com
   - DOMAIN,cdn.jsdelivr.net
   - DOMAIN,umami.is
+  - DOMAIN,analytics.google.com
