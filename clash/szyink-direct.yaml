@@ -19,7 +19,6 @@ payload:
   - DOMAIN-SUFFIX,windows.net
   - DOMAIN-SUFFIX,windowsupdate.com
   - DOMAIN-SUFFIX,msftconnecttest.com
-  - DOMAIN-SUFFIX,microsoft.com
   - DOMAIN-SUFFIX,msedge.net
   - DOMAIN-SUFFIX,akadns.net
   - DOMAIN-SUFFIX,akamaiedge.net
