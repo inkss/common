@@ -1,4 +1,8 @@
 payload:
+
+  # ============================
+  # 个人自定义
+  # ============================
   - DOMAIN,adc.ink
   - DOMAIN-SUFFIX,adc.ink
   - DOMAIN-SUFFIX,inkss.cn
@@ -7,3 +11,84 @@ payload:
   - DOMAIN,hhanclub.top
   - DOMAIN,pt.btschool.club
   - DOMAIN,www.pttime.org
+
+  # ============================
+  # Windows / 系统核心服务（必须直连）
+  # ============================
+  - DOMAIN-SUFFIX,windows.com
+  - DOMAIN-SUFFIX,windows.net
+  - DOMAIN-SUFFIX,windowsupdate.com
+  - DOMAIN-SUFFIX,msftconnecttest.com
+  - DOMAIN-SUFFIX,microsoft.com
+  - DOMAIN-SUFFIX,msedge.net
+  - DOMAIN-SUFFIX,akadns.net
+  - DOMAIN-SUFFIX,akamaiedge.net
+  - DOMAIN-SUFFIX,akamaized.net
+
+  # ============================
+  # Office / Outlook / OneDrive（直连最快）
+  # ============================
+  - DOMAIN-SUFFIX,office.com
+  - DOMAIN-SUFFIX,office.net
+  - DOMAIN-SUFFIX,office365.com
+  - DOMAIN-SUFFIX,outlook.com
+  - DOMAIN-SUFFIX,live.com
+  - DOMAIN-SUFFIX,live.net
+  - DOMAIN-SUFFIX,onedrive.com
+  - DOMAIN-SUFFIX,sharepoint.com
+
+  # ============================
+  # 登录认证（直连最稳定）
+  # ============================
+  - DOMAIN-SUFFIX,microsoftonline.com
+  - DOMAIN-SUFFIX,msauth.net
+  - DOMAIN-SUFFIX,msftauth.net
+  - DOMAIN-SUFFIX,msauthimages.net
+  - DOMAIN-SUFFIX,msftauthimages.net
+  - DOMAIN-SUFFIX,passport.net
+  - DOMAIN-SUFFIX,jwt.ms
+
+  # ============================
+  # Azure 中国区 / 国内可直连节点
+  # ============================
+  - DOMAIN-SUFFIX,azure.cn
+  - DOMAIN-SUFFIX,chinacloudapi.cn
+  - DOMAIN-SUFFIX,chinacloudsites.cn
+  - DOMAIN-SUFFIX,chinacloudapp.cn
+  - DOMAIN-SUFFIX,azureedge.net
+  - DOMAIN-SUFFIX,azurefd.net
+  - DOMAIN-SUFFIX,azurewebsites.net
+
+  # ============================
+  # Xbox / 游戏服务（直连延迟最低）
+  # ============================
+  - DOMAIN-SUFFIX,xbox.com
+  - DOMAIN-SUFFIX,xboxlive.com
+  - DOMAIN-SUFFIX,xboxservices.com
+  - DOMAIN-SUFFIX,minecraft.net
+  - DOMAIN-SUFFIX,mojang.com
+
+  # ============================
+  # 微软内容分发 / CDN（国内有节点）
+  # ============================
+  - DOMAIN-SUFFIX,assets-yammer.com
+  - DOMAIN-SUFFIX,msocdn.com
+  - DOMAIN-SUFFIX,msocsp.com
+  - DOMAIN-SUFFIX,footprintdns.com
+  - DOMAIN-SUFFIX,spoprod-a.akamaihd.net
+  - DOMAIN-SUFFIX,cs11.wpc.v0cdn.net
+  - DOMAIN-SUFFIX,cs9.wac.phicdn.net
+
+  # ============================
+  # 其他微软服务（直连更快）
+  # ============================
+  - DOMAIN-SUFFIX,msn.com
+  - DOMAIN-SUFFIX,msn.cn
+  - DOMAIN-SUFFIX,msn.net
+  - DOMAIN-SUFFIX,skype.com
+  - DOMAIN-SUFFIX,skype.net
+  - DOMAIN-SUFFIX,teams.microsoft.com
+  - DOMAIN-SUFFIX,microsoftstart.com
+  - DOMAIN-SUFFIX,makecode.org
+  - DOMAIN-SUFFIX,adaptivecards.io
+  - DOMAIN-SUFFIX,botframework.com
