@@ -81,7 +81,6 @@ payload:
   # ============================
   # 其他微软服务（直连更快）
   # ============================
-  - DOMAIN-SUFFIX,msn.com
   - DOMAIN-SUFFIX,msn.cn
   - DOMAIN-SUFFIX,msn.net
   - DOMAIN-SUFFIX,skype.com
