@@ -13,6 +13,18 @@ payload:
   - DOMAIN,www.pttime.org
 
   # ============================
+  # Steam 下载直连矫正
+  # ============================
+  - DOMAIN-SUFFIX,api.steampowered.com
+  - DOMAIN-SUFFIX,store.steampowered.com
+  - DOMAIN-SUFFIX,cdn.steampowered.com
+  - DOMAIN,steamcdn-a.akamaihd.net
+  - DOMAIN-SUFFIX,steamserver.net
+  - DOMAIN-SUFFIX,steamcontent.com
+  - DOMAIN-SUFFIX,cm.steampowered.com
+  - DOMAIN-SUFFIX,steamchina.com
+  
+  # ============================
   # Windows / 系统核心服务（必须直连）
   # ============================
   - DOMAIN-SUFFIX,windows.com
