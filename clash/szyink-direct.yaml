@@ -12,49 +12,32 @@ payload:
   - DOMAIN,pt.btschool.club
   - DOMAIN,www.pttime.org
 
-  # === 1. OneDrive 客户端同步与数据传输（核心：满速下载/上传） ===
+# === 1. OneDrive 客户端传输（保证同步满速，不走代理流量） ===
 - DOMAIN-SUFFIX,storage.live.com
 - DOMAIN-SUFFIX,storage.msn.com
 - DOMAIN-SUFFIX,oneclient.sfx.ms
-- DOMAIN-SUFFIX,aria.microsoft.com
+- DOMAIN-SUFFIX,spoprod-a.akamaihd.net
 - DOMAIN-SUFFIX,sharepoint.com
 - DOMAIN-SUFFIX,sharepointonline.com
-- DOMAIN-SUFFIX,spoprod-a.akamaihd.net
 
-# === 2. 账号登录与安全认证（核心：防止异地登录风控/锁号） ===
+# === 2. 账号与安全（确保登录不风控，维持本地 IP 登录） ===
 - DOMAIN-SUFFIX,login.live.com
-- DOMAIN-SUFFIX,microsoftonline.com
 - DOMAIN-SUFFIX,msauth.net
 - DOMAIN-SUFFIX,msftauth.net
-- DOMAIN-SUFFIX,msauthimages.net
-- DOMAIN-SUFFIX,msftauthimages.net
+- DOMAIN-SUFFIX,microsoftonline.com
 - DOMAIN-SUFFIX,passport.net
-- DOMAIN-SUFFIX,jwt.ms
-- DOMAIN-SUFFIX,outlook.com
 
-# === 3. Windows 系统更新与核心服务（核心：节省代理流量，利用本地带宽） ===
-- DOMAIN-SUFFIX,windows.com
-- DOMAIN-SUFFIX,windows.net
+# === 3. Windows & CDN（系统核心服务，直连最快） ===
 - DOMAIN-SUFFIX,windowsupdate.com
-- DOMAIN-SUFFIX,msftconnecttest.com
-- DOMAIN-SUFFIX,msedge.net
-
-# === 4. 微软全球 CDN 与加速节点（核心：国内有大量缓存节点） ===
-- DOMAIN-SUFFIX,akadns.net
-- DOMAIN-SUFFIX,akamaiedge.net
+- DOMAIN-SUFFIX,windows.net
+- DOMAIN-SUFFIX,windows.com
 - DOMAIN-SUFFIX,akamaized.net
 - DOMAIN-SUFFIX,azureedge.net
-- DOMAIN-SUFFIX,azurefd.net
-- DOMAIN-SUFFIX,msocdn.com
+- DOMAIN-SUFFIX,msedge.net
+- DOMAIN-SUFFIX,msftconnecttest.com
 
-# === 5. Office 365 办公与 Teams 通信 ===
+# === 4. Office & Outlook 办公（确保收发邮件稳定） ===
+- DOMAIN-SUFFIX,outlook.com
 - DOMAIN-SUFFIX,office.com
-- DOMAIN-SUFFIX,office.net
 - DOMAIN-SUFFIX,office365.com
 - DOMAIN-SUFFIX,teams.microsoft.com
-
-# === 6. Xbox 游戏与 Azure 中国区 ===
-- DOMAIN-SUFFIX,xbox.com
-- DOMAIN-SUFFIX,xboxlive.com
-- DOMAIN-SUFFIX,azure.cn
-- DOMAIN-SUFFIX,chinacloudapi.cn
