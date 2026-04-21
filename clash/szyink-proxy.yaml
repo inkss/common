@@ -2,6 +2,10 @@ payload:
   # ============================
   # 个人自定义
   # ============================
-  - DOMAIN,cdn.jsdelivr.net
   - DOMAIN,umami.is
   - DOMAIN,analytics.google.com
+  - DOMAIN,cdn.jsdelivr.net
+  - DOMAIN-SUFFIX,services.googleapis.cn
+  - DOMAIN-SUFFIX,googleapis.cn
+  - DOMAIN-SUFFIX,connectivitycheck.gstatic.com
+  - DOMAIN-SUFFIX,gstatic.com
