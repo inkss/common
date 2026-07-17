@@ -5,6 +5,7 @@ payload:
   # ============================
   - DOMAIN-SUFFIX,galileotelemetry.tencent.com
   - DOMAIN-SUFFIX,otheve.beacon.qq.com
+  - DOMAIN,oth.str.beacon.qq.com
   # ============================
   # 个人自定义
   # ============================
