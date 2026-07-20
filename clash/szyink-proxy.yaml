@@ -2,6 +2,8 @@ payload:
   # ============================
   # 个人自定义
   # ============================
+  
+  - DOMAIN-SUFFIX,ubits.club
   - DOMAIN,umami.is
   - DOMAIN,analytics.google.com
   - DOMAIN,cdn.jsdelivr.net
